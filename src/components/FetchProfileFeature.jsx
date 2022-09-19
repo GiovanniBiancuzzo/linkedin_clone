@@ -11,16 +11,15 @@ import { useNavigate } from "react-router-dom";
 import { addToListAction, getProfileAction } from "../redux/actions";
 
 const FetchProfileFeature = () => {
-    const profile = useSelector((state) => state.profile.actualProfile);
+    const profile = useSelector((state) => state.profile.actualProfile); // recupero di un profilo dallo store
     const userID = "me"; //o qualunque id
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("didmount");
-        dispatch(addToListAction());
-        dispatch(getProfileAction(userID));
+        dispatch(addToListAction()); // si caricano in store tutti i profili
+        dispatch(getProfileAction(userID)); // in base all'id selezionato, si setta un profilo attuale
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -5,6 +5,7 @@ import FetchProfileFeature from './components/FetchProfileFeature';
 import FormComponentPutRequest from './components/FormComponentPutRequest';
 import NotFoundComponent from './components/NotFoundComponent';
 import { Row, Container } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App () {
   return (
