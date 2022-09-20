@@ -3,7 +3,7 @@ import profliePic from "../assets/d9569bbed4393e2ceb1af7ba64fdf86a.jpg";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { addToProfilesAction, getProfileAction } from "../redux/actions";
+import { getActualProfileAction, getProfilesAction } from "../redux/actions";
 
 const MyCustomProfile = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
@@ -12,8 +12,8 @@ const MyCustomProfile = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(addToProfilesAction()); // si caricano in store tutti i profili
-        dispatch(getProfileAction(userID)); // in base all'id selezionato, si setta un profilo attuale
+        dispatch(getProfilesAction()); // si caricano in store tutti i profili
+        dispatch(getActualProfileAction(userID)); // in base all'id selezionato, si setta un profilo attuale
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
