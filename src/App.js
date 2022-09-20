@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNavbar from "./components/MyNavbar";
 import MyCustomProfile from "./components/MyCustomProfile";
+import ExperienceForm from "./components/ExperienceForm"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App">
         <MyNavbar />
         <MyCustomProfile />
+        <ExperienceForm/>
       </div>
     </BrowserRouter>
   );
