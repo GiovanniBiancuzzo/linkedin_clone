@@ -13,8 +13,7 @@ const SingleExperience = ({ experience }) => {
         description: "",
         role: "",
         startDate: "",
-        user: "",
-        userName: "",
+        endDate: "",
     });
 
     const showModal = () => setShow(!show);
