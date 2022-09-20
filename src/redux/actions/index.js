@@ -1,7 +1,7 @@
-export const ADD_TO_LIST = 'ADD_TO_LIST';
+export const ADD_TO_PROFILES = 'ADD_TO_PROFILES';
 export const GET_PROFILE = 'GET_PROFILE';
-export const LOADED_LIST = 'LOADED_LIST';
-export const GET_LIST_ERROR = 'GET_LIST_ERROR';
+export const LOADED_PROFILES = 'LOADED_PROFILES';
+export const GET_PROFILES_ERROR = 'GET_PROFILES_ERROR';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 
 
@@ -11,7 +11,7 @@ const endpointProfileApi =
 const key =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MTg5ZDZkNzlhNTAwMTUwOTAyZTciLCJpYXQiOjE2NjM1NzIxMjUsImV4cCI6MTY2NDc4MTcyNX0.6bJFxOHIifx_59Q1Ufr2BmkINZTRZD9wO-HNuiHA-iU";
 
-export const addToListAction = () => {
+export const addToProfilesAction = () => {
     return (dispatch, getState) => {
         fetch(`${endpointProfileApi}`, {
             method: "GET",
@@ -22,22 +22,22 @@ export const addToListAction = () => {
             .then(res => res.json())
             .then(data => {
                 dispatch({
-                    type: ADD_TO_LIST,
+                    type: ADD_TO_PROFILES,
                     payload: data
                 });
                 setTimeout(() => {
                     dispatch({
-                        type: LOADED_LIST,
+                        type: LOADED_PROFILES,
                     });
                 }, 200);
             })
             .catch(error => {
                 console.log(error);
                 dispatch({
-                    type: LOADED_LIST,
+                    type: LOADED_PROFILES,
                 });
                 dispatch({
-                    type: GET_LIST_ERROR,
+                    type: GET_PROFILES_ERROR,
                 });
             });
     };
@@ -60,17 +60,17 @@ export const getProfileAction = (userID) => {
                 });
                 setTimeout(() => {
                     dispatch({
-                        type: LOADED_LIST,
+                        type: LOADED_PROFILES,
                     });
                 }, 200);
             })
             .catch(error => {
                 console.log(error);
                 dispatch({
-                    type: LOADED_LIST,
+                    type: LOADED_PROFILES,
                 });
                 dispatch({
-                    type: GET_LIST_ERROR,
+                    type: GET_PROFILES_ERROR,
                 });
             });
     };
@@ -94,17 +94,17 @@ export const updateProfileAction = (data) => {
                 });
                 setTimeout(() => {
                     dispatch({
-                        type: LOADED_LIST,
+                        type: LOADED_PROFILES,
                     });
                 }, 200);
             })
             .catch(error => {
                 console.log(error);
                 dispatch({
-                    type: LOADED_LIST,
+                    type: LOADED_PROFILES,
                 });
                 dispatch({
-                    type: GET_LIST_ERROR,
+                    type: GET_PROFILES_ERROR,
                 });
             });
     };

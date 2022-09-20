@@ -1,7 +1,7 @@
-import { ADD_TO_LIST, LOADED_LIST, GET_LIST_ERROR, GET_PROFILE, UPDATE_PROFILE } from "../actions";
+import { ADD_TO_PROFILES, LOADED_PROFILES, GET_PROFILES_ERROR, GET_PROFILE, UPDATE_PROFILE } from "../actions";
 
 const initialState = {
-    list: [],
+    profiles: [],
     actualProfile: {},
     loading: true,
     error: false
@@ -9,10 +9,10 @@ const initialState = {
 
 const profilesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_TO_LIST:
+        case ADD_TO_PROFILES:
             return {
                 ...state,
-                list: action.payload
+                profiles: action.payload
             };
         case GET_PROFILE:
             return {
@@ -22,17 +22,17 @@ const profilesReducer = (state = initialState, action) => {
         case UPDATE_PROFILE:
             return {
                 ...state,
-                list: {
-                    ...state.list,
+                profiles: {
+                    ...state.profiles,
                     _id: action.payload
                 }
             };
-        case LOADED_LIST:
+        case LOADED_PROFILES:
             return {
                 ...state,
                 loading: !state.loading
             };
-        case GET_LIST_ERROR:
+        case GET_PROFILES_ERROR:
             return {
                 ...state,
                 error: true
