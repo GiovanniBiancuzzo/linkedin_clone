@@ -8,8 +8,7 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 const endpointProfileApi =
     "https://striveschool-api.herokuapp.com/api/profile/";
 
-const key =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MTg5ZDZkNzlhNTAwMTUwOTAyZTciLCJpYXQiOjE2NjM1NzIxMjUsImV4cCI6MTY2NDc4MTcyNX0.6bJFxOHIifx_59Q1Ufr2BmkINZTRZD9wO-HNuiHA-iU";
+const key ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI5OWU4ZDJhYTViMzAwMTU2MDUyNTYiLCJpYXQiOjE2NjM2NzE5NTAsImV4cCI6MTY2NDg4MTU1MH0.5qCziQBYQ7_ajm5EVd97zDWPcfQGZN5S9AJJQM-G7Q0";
 
 export const addToProfilesAction = () => {
     return (dispatch, getState) => {
