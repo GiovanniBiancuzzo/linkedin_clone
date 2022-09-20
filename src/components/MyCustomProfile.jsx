@@ -13,7 +13,7 @@ const MyCustomProfile = () => {
 
 
   return (
-    <div>
+    
       <Container>
         <Row>
           <Col className="profile-section">
@@ -21,16 +21,16 @@ const MyCustomProfile = () => {
             <Image src ="" alt=""/>
               <Image id="profile-pic" src={profliePic} roundedCircle   />
             
-              <div className="name">Name Surname  <HiOutlinePencil /> </div>
+              <div className="name">Name Surname  <HiOutlinePencil className="pencil-icon float-right"/> </div>
               <div>Title</div>
               <div>Area</div>
 
-              <Button className="bottone">CLICK ME</Button>
+              <Button className="bottone">Disponibile per</Button>
             </div>
           </Col>
         </Row>
       </Container>
-    </div>
+    
   );
 };
 
