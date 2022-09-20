@@ -19,24 +19,27 @@ const experiencesReducer = (state = initialState, action) => {
                 ...state,
                 actualExperience: action.payload
             };
-        case CREATE_EXPERIENCE:
-            return {
-                ...state,
-                experiences: [...state.experiences, action.payload]
-            };
-        case UPDATE_EXPERIENCE:
-            return {
-                ...state,
-                experiences: {
-                    ...state.profiles,
-                    _id: action.payload
-                }
-            };
-        case DELETE_EXPERIENCE:
-            return {
-                ...state,
-                experiences: state.experiences.filter((experience) => experience._id !== action.payload)
-            };
+        //? serve veramente? se creo nel server vale la pena creare anche nello store? ricarico lo store no?
+        // case CREATE_EXPERIENCE:
+        //     return {
+        //         ...state,
+        //         experiences: [...state.experiences, action.payload]
+        //     };
+        //? serve veramente? se modifico nel server vale la pena modificare anche nello store? ricarico lo store no?
+        // case UPDATE_EXPERIENCE:
+        //     return {
+        //         ...state,
+        //         experiences: {
+        //             ...state.profiles,
+        //             _id: action.payload
+        //         }
+        //     };
+        //? serve veramente? se cancello nel server vale la pena cancellare anche nello store? ricarico lo store no?
+        // case DELETE_EXPERIENCE:
+        //     return {
+        //         ...state,
+        //         experiences: state.experiences.filter((experience) => experience._id !== action.payload)
+        //     };
         case LOADED_EXPERIENCES:
             return {
                 ...state,

@@ -7,7 +7,7 @@ import SingleExperience from "./SingleExperience";
 
 const ExperiencesComponent = () => {
     const experiences = useSelector((state) => state.experience.experiences); // recupero delle experiences dallo store
-    const userID = "me"; //o qualunque id
+    const userID = "6328189d6d79a500150902e7"; //mio id
     const userIDPierdomenico = "5fc4da7fed266800170ea3e5"; //o qualunque id
 
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const ExperiencesComponent = () => {
     const handleCreate = () => {};
 
     useEffect(() => {
-        dispatch(getExperiencesAction(userIDPierdomenico)); // si caricano in store tutte le experiences
+        dispatch(getExperiencesAction(userID)); // si caricano in store tutte le experiences
         // in base all'id selezionato, si setta un profilo attuale
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -42,14 +42,11 @@ const ExperiencesComponent = () => {
                     <Modal.Title>Crea esperienza</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <ExperienceForm />
+                    <ExperienceForm create={createExperienceAction} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={showModal}>
                         Close
-                    </Button>
-                    <Button variant="danger" onClick={handleCreate}>
-                        Elimina
                     </Button>
                 </Modal.Footer>
             </Modal>

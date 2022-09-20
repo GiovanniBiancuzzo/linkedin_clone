@@ -1,21 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, Col, Row, Container, Modal } from "react-bootstrap";
-import { updateExperienceAction } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    createExperienceAction,
+    updateExperienceAction,
+} from "../redux/actions";
 
-const ExperienceForm = ({ experience }) => {
+const ExperienceForm = (props) => {
+    const actualProfile = useSelector((state) => state.profile.actualProfile);
     const [data, setData] = useState({
-        area: "", //   experience.area,
-        company: "", //     experience.company,
-        description: "", //     experience.description,
-        role: "", //  experience.role,
-        startDate: "", //      experience.startDate,
-        endDate: "", //      experience.endDate,
+        area: "", //   actualProfile.area,
+        company: "", //     actualProfile.company,
+        description: "", //     actualProfile.description,
+        role: "", //  actualProfile.role,
+        startDate: "", //      actualProfile.startDate,
+        endDate: "", //      actualProfile.endDate,
     });
 
-    const handleUpdate = (e) => {
+    const dispatch = useDispatch();
+
+    const handleCRUD = (e) => {
         e.preventDefault();
-        updateExperienceAction(experience, data);
+        if (props.create) {
+            console.log("create");
+            dispatch(createExperienceAction(actualProfile._id, data));
+        } else if (props.update) {
+            console.log("update");
+            dispatch(updateExperienceAction(props.experience, data));
+        }
     };
+
+    // useEffect(() => {
+    //     if (props.update) {
+    //         setData({
+    //             area: actualProfile.area,
+    //             company: actualProfile.company,
+    //             description: actualProfile.description,
+    //             role: actualProfile.role,
+    //             startDate: actualProfile.startDate,
+    //             endDate: actualProfile.endDate,
+    //         });
+    //     }
+    // }, []);
 
     return (
         // <div>
@@ -23,7 +49,7 @@ const ExperienceForm = ({ experience }) => {
             <Row>
                 {/* <Col xs={12} md={6}> */}
                 <Col>
-                    <Form className="text-left" onSubmit={handleUpdate}>
+                    <Form className="text-left" onSubmit={handleCRUD}>
                         <Form.Group>
                             <Form.Label>Company</Form.Label>
                             <Form.Control
@@ -118,7 +144,7 @@ const ExperienceForm = ({ experience }) => {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">
-                            Submit
+                            Invia
                         </Button>
                     </Form>
                 </Col>

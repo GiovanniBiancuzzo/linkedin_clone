@@ -28,8 +28,6 @@ export const getProfilesAction = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Profili');
-                console.log(data);
                 dispatch({
                     type: GET_PROFILES,
                     payload: data
@@ -119,8 +117,9 @@ export const updateProfileAction = (data) => {
     };
 };
 
-export const getExperiencesAction = (userID) => {
+export const getExperiencesAction = () => {
     return (dispatch, getState) => {
+        const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences`, {
             method: "GET",
             headers: {
@@ -188,35 +187,23 @@ export const getSingleExperienceAction = (userID, expID) => {
 
 export const createExperienceAction = (userID, data) => {
     return (dispatch, getState) => {
+        // const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences`, {
             method: "POST",
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${keyGiovanni}`,
             },
-            body: JSON.stringify(data),
         })
-            .then(res => res.json())
-            .then(() => {
-                dispatch({
-                    type: CREATE_EXPERIENCE,
-                    payload: data
-                });
-                setTimeout(() => {
-                    dispatch({
-                        type: LOADED_EXPERIENCES,
-                    });
-                }, 200);
+            .then(res => {
+                if (res.ok) {
+                    console.log('post positiva');
+                }
+                else console.log('post negativa');
             })
-            .catch(error => {
-                console.log(error);
-                dispatch({
-                    type: LOADED_EXPERIENCES,
-                });
-                dispatch({
-                    type: GET_EXPERIENCES_ERROR,
-                });
-            });
+            .then((data) => console.log(data))
+            .catch(error => console.log(error));
     };
 };
 
@@ -225,32 +212,17 @@ export const updateExperienceAction = (experience, data) => {
         fetch(`${endpointApi}/profile/${experience.user}/experiences/${experience._id}`, {
             method: "PUT",
             headers: {
-                // "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${keyGiovanni}`,
             },
             body: JSON.stringify(data),
         })
             .then(res => res.json())
-            .then(() => {
-                dispatch({
-                    type: UPDATE_EXPERIENCE,
-                    payload: data
-                });
-                setTimeout(() => {
-                    dispatch({
-                        type: LOADED_EXPERIENCES,
-                    });
-                }, 200);
+            .then((data) => {
+                console.log(data);
+                dispatch(getExperiencesAction);//aggiorna lo store dopo le operazioni di crud
             })
-            .catch(error => {
-                console.log(error);
-                dispatch({
-                    type: LOADED_EXPERIENCES,
-                });
-                dispatch({
-                    type: GET_EXPERIENCES_ERROR,
-                });
-            });
+            .catch(error => console.log(error));
     };
 };
 export const deleteExperienceAction = (experience) => {
@@ -265,15 +237,16 @@ export const deleteExperienceAction = (experience) => {
             .then(res => res.json())
             .then((data) => {
                 console.log(data);
-                dispatch({
-                    type: DELETE_EXPERIENCE,
-                    payload: experience._id
-                });
-                setTimeout(() => {
-                    dispatch({
-                        type: LOADED_EXPERIENCES,
-                    });
-                }, 200);
+                dispatch(getExperiencesAction);//aggiorna lo store dopo le operazioni di crud
+                // dispatch({
+                //     type: DELETE_EXPERIENCE,
+                //     payload: experience._id
+                // });
+                // setTimeout(() => {
+                //     dispatch({
+                //         type: LOADED_EXPERIENCES,
+                //     });
+                // }, 200);
             })
             .catch(error => {
                 console.log(error);
