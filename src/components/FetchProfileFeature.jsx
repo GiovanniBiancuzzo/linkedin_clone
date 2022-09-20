@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToListAction, getProfileAction } from "../redux/actions";
+import { addToProfilesAction, getProfileAction } from "../redux/actions";
 
 const FetchProfileFeature = () => {
     const profile = useSelector((state) => state.profile.actualProfile); // recupero di un profilo dallo store
@@ -18,7 +18,7 @@ const FetchProfileFeature = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(addToListAction()); // si caricano in store tutti i profili
+        dispatch(addToProfilesAction()); // si caricano in store tutti i profili
         dispatch(getProfileAction(userID)); // in base all'id selezionato, si setta un profilo attuale
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
