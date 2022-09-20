@@ -152,8 +152,9 @@ export const getExperiencesAction = () => {
 };
 
 
-export const getSingleExperienceAction = (userID, expID) => {
+export const getSingleExperienceAction = (expID) => {
     return (dispatch, getState) => {
+        const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences/${expID}`, {
             method: "GET",
             headers: {
@@ -185,9 +186,9 @@ export const getSingleExperienceAction = (userID, expID) => {
     };
 };
 
-export const createExperienceAction = (userID, data) => {
+export const createExperienceAction = (data) => {
     return (dispatch, getState) => {
-        // const userID = getState().profile.actualProfile._id;
+        const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences`, {
             method: "POST",
             body: JSON.stringify(data),
@@ -209,7 +210,8 @@ export const createExperienceAction = (userID, data) => {
 
 export const updateExperienceAction = (experience, data) => {
     return (dispatch, getState) => {
-        fetch(`${endpointApi}/profile/${experience.user}/experiences/${experience._id}`, {
+        const userID = getState().profile.actualProfile._id;
+        fetch(`${endpointApi}/profile/${userID}/experiences/${experience._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -227,7 +229,8 @@ export const updateExperienceAction = (experience, data) => {
 };
 export const deleteExperienceAction = (experience) => {
     return (dispatch, getState) => {
-        fetch(`${endpointApi}/profile/${experience.user}/experiences/${experience._id}`, {
+        const userID = getState().profile.actualProfile._id;
+        fetch(`${endpointApi}/profile/${userID}/experiences/${experience._id}`, {
             method: "DELETE",
             headers: {
                 // "Content-Type": "application/json",

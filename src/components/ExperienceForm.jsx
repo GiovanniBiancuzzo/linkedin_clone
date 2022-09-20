@@ -23,7 +23,7 @@ const ExperienceForm = (props) => {
         e.preventDefault();
         if (props.create) {
             console.log("create");
-            dispatch(createExperienceAction(actualProfile._id, data));
+            dispatch(createExperienceAction(data));
         } else if (props.update) {
             console.log("update");
             dispatch(updateExperienceAction(props.experience, data));
