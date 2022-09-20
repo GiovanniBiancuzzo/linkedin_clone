@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import profilesReducer from '../reducers/profilesReducer';
+import experiencesReducer from '../reducers/experiencesReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';//i metodi di persist
 import storage from 'redux-persist/lib/storage';
@@ -7,6 +8,7 @@ import storage from 'redux-persist/lib/storage';
 
 const mainReducer = combineReducers({
     profile: profilesReducer,
+    experience: experiencesReducer
 });
 
 const persistConfig = ({

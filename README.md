@@ -8,3 +8,7 @@ Utilizzo di
 -   redux con actions per recuperare e storare tutti i profili e ricerca del mio profilo
 -   redux persist
 -   bootstrap 4.6.1
+
+Funzionalità
+
+-   fetch dei profili e delle experiences, da testare approfonditamente le operazioni crud, creazione dello store peristente

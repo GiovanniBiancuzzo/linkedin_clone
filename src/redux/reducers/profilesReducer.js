@@ -1,4 +1,4 @@
-import { ADD_TO_PROFILES, LOADED_PROFILES, GET_PROFILES_ERROR, GET_PROFILE, UPDATE_PROFILE } from "../actions";
+import { GET_PROFILES, GET_ACTUAL_PROFILE, LOADED_PROFILES, GET_PROFILES_ERROR, UPDATE_PROFILE } from "../actions";
 
 const initialState = {
     profiles: [],
@@ -9,12 +9,12 @@ const initialState = {
 
 const profilesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_TO_PROFILES:
+        case GET_PROFILES:
             return {
                 ...state,
                 profiles: action.payload
             };
-        case GET_PROFILE:
+        case GET_ACTUAL_PROFILE:
             return {
                 ...state,
                 actualProfile: action.payload

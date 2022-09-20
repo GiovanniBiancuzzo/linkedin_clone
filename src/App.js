@@ -3,15 +3,16 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNavbar from "./components/MyNavbar";
 import MyCustomProfile from "./components/MyCustomProfile";
-import ExperienceForm from "./components/ExperienceForm"
+import ExperienceForm from "./components/ExperienceForm";
+import FetchExperienceFeature from "./components/FetchExperienceFeature";
 
-function App() {
+function App () {
   return (
     <BrowserRouter>
       <div className="App">
         <MyNavbar />
         <MyCustomProfile />
-        <ExperienceForm/>
+        <ExperienceForm />
       </div>
     </BrowserRouter>
   );
