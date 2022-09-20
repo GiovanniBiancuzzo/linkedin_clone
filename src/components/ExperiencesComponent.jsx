@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createExperienceAction, getExperiencesAction } from "../redux/actions";
+import ExperienceForm from "./ExperienceForm";
 import SingleExperience from "./SingleExperience";
 
 const ExperiencesComponent = () => {
@@ -35,6 +36,23 @@ const ExperiencesComponent = () => {
                         />
                     ))}
             </Col>
+
+            <Modal centered show={show} onHide={showModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Crea esperienza</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ExperienceForm />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={showModal}>
+                        Close
+                    </Button>
+                    <Button variant="danger" onClick={handleCreate}>
+                        Elimina
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 };

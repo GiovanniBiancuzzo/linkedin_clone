@@ -36,6 +36,7 @@ const SingleExperience = ({ experience }) => {
                     <Modal.Title>Modifica esperienza</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <ExperienceForm experience={experience} />
                     {/* <Form onSubmit={handleUpdate}>
                         <Form.Group controlId="formGridEmail">
                             <Form.Label>Compagnia</Form.Label>
@@ -108,7 +109,6 @@ const SingleExperience = ({ experience }) => {
                             />
                         </Form.Group>
                     </Form> */}
-                    <ExperienceForm experience={experience} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={showModal}>
