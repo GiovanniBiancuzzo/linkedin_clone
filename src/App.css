@@ -1,17 +1,17 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-#link{
-  text-decoration: none;
-  color: #252525e1;
+#link {
+    text-decoration: none;
+    color: #252525e1;
 }
 
-#icona{
-  width: 85px !important;
-  color: #252525e1;
+#icona {
+    width: 85px !important;
+    color: #252525e1;
 }
 
 .work {
-  border-left: 1px solid #252525e1;
+    border-left: 1px solid #252525e1;
 }

@@ -8,9 +8,9 @@ import MyNavbar from './components/MyNavbar';
 function App () {
   return (
     <BrowserRouter>
-    <div className="App">
-      <MyNavbar/>
-    </div>
+      <div className="App">
+        <MyNavbar />
+      </div>
     </BrowserRouter>
   );
 }
