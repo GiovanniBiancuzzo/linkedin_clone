@@ -8,8 +8,12 @@ import { MdWork, MdNotifications } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Image } from "react-bootstrap";
 
 function MyNavbar() {
+    const profile = useSelector((state) => state.profile.actualProfile);
+
     return (
         <Navbar collapseOnSelect bg="#fff" className="navbar">
             <Navbar.Brand href="#home" xs={5}>
@@ -64,9 +68,14 @@ function MyNavbar() {
                             </Link>
 
                             <div className="IconTu">
-                                <CgProfile id="icona" size={30} />
+                                <Image
+                                    src={profile.image}
+                                    roundedCircle
+                                    width={"30px"}
+                                />
+                                {/* <CgProfile id="icona" size={30} /> */}
                                 <NavDropdown
-                                    title="Tu"
+                                    title={profile.name}
                                     id="collasible-nav-dropdown"
                                 >
                                     <NavDropdown.Item href="#action/3.0">
