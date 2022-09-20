@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    padding-left: 5vw;
+    padding-right: 10vw;
 }
 
 #link {
@@ -71,4 +73,16 @@
 
 .pencil-icon:hover {
     background-color: white;
+}
+.link-p {
+    color: rgb(117, 90, 41);
+    font-size: small;
+    align-self: flex-start;
+}
+#searchBar {
+    width: 10vw;
+}
+ 
+#imglink{
+    width: 40px
 }

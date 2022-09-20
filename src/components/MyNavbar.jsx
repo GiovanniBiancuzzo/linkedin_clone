@@ -9,7 +9,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Image } from "react-bootstrap";
+import {Form, Button, Image} from "react-bootstrap";
 
 function MyNavbar() {
     const profile = useSelector((state) => state.profile.actualProfile);
@@ -17,8 +17,16 @@ function MyNavbar() {
     return (
         <Navbar collapseOnSelect bg="#fff" className="navbar">
             <Navbar.Brand href="#home" xs={5}>
-                React-Bootstrap
+                <img src="https://packagingspace.net/files/chunks/5d03ab97a0d5566f83000237/5d03aba5a0d5566f83000238.png" alt="" id="imglink" />
             </Navbar.Brand>
+            <Button variant="outline-success">Search</Button>
+            <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    id="searchBar"
+                    aria-label="Search"
+                  />
             <Container xs={7} className="ms-auto" id="Container">
                 <section className="ml-auto">
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -71,13 +79,25 @@ function MyNavbar() {
                                 <Image
                                     src={profile.image}
                                     roundedCircle
-                                    width={"30px"}
+                                    width={"25px"}
                                 />
                                 {/* <CgProfile id="icona" size={30} /> */}
                                 <NavDropdown
                                     title={profile.name}
                                     id="collasible-nav-dropdown"
                                 >
+
+                                    <NavDropdown.Item>
+                                    <Image
+                                    src={profile.image}
+                                    roundedCircle
+                                    width={"45px"}
+                                /><h6>Nome e Cognome</h6>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Divider/>
+                                    <NavDropdown.Item>
+                                        <h5>Account</h5>
+                                    </NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.0">
                                         Prova premium gratis
                                     </NavDropdown.Item>
@@ -118,7 +138,9 @@ function MyNavbar() {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </div>
+                            <Button variant="link" className="link-p">Prova premium gratis</Button>
                         </Nav>
+                      
                     </Navbar.Collapse>
                 </section>
             </Container>
