@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Badge, Button, Card, Form, Modal, Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Badge, Button, Card, Form, Modal } from "react-bootstrap";
 import {
     deleteExperienceAction,
     updateExperienceAction,

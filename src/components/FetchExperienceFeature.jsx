@@ -1,13 +1,6 @@
 import { useEffect } from "react";
-import {
-    Accordion,
-    Card,
-    Col,
-    ListGroup,
-    ListGroupItem,
-} from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { getExperiencesAction } from "../redux/actions";
 import SingleExperience from "./SingleExperience";
 
