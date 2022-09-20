@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNavbar from "./components/MyNavbar";
 import MyCustomProfile from "./components/MyCustomProfile";
 import ExperienceForm from "./components/ExperienceForm";
-import FetchExperienceFeature from "./components/FetchExperienceFeature";
+
+import ExperiencesComponent from "./components/ExperiencesComponent";
 
 function App () {
   return (
@@ -12,7 +13,7 @@ function App () {
       <div className="App">
         <MyNavbar />
         <MyCustomProfile />
-        <ExperienceForm />
+        <ExperiencesComponent />
       </div>
     </BrowserRouter>
   );

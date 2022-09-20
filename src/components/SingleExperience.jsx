@@ -4,6 +4,7 @@ import {
     deleteExperienceAction,
     updateExperienceAction,
 } from "../redux/actions";
+import ExperienceForm from "./ExperienceForm";
 
 const SingleExperience = ({ experience }) => {
     const [show, setShow] = useState(false);
@@ -19,10 +20,10 @@ const SingleExperience = ({ experience }) => {
     const showModal = () => setShow(!show);
     // const showModal = () => setShow(true);
 
-    const handleUpdate = (e) => {
-        e.preventDefault();
-        updateExperienceAction(experience, data);
-    };
+    // const handleUpdate = (e) => {
+    //     e.preventDefault();
+    //     updateExperienceAction(experience, data);
+    // };
     const handleDelete = (e) => {
         e.preventDefault();
         deleteExperienceAction(experience);
@@ -34,10 +35,8 @@ const SingleExperience = ({ experience }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Modifica esperienza</Modal.Title>
                 </Modal.Header>
-                <Form onSubmit={handleUpdate}>
-                    {" "}
-                    <Modal.Body>
-                        {" "}
+                <Modal.Body>
+                    {/* <Form onSubmit={handleUpdate}>
                         <Form.Group controlId="formGridEmail">
                             <Form.Label>Compagnia</Form.Label>
                             <Form.Control
@@ -70,6 +69,7 @@ const SingleExperience = ({ experience }) => {
                             <Form.Group controlId="formGridAddress1">
                                 <Form.Label>Inizio</Form.Label>
                                 <Form.Control
+                                    type="date"
                                     placeholder="Data d'inizio"
                                     value={data.startDate}
                                     onChange={(e) => {
@@ -107,16 +107,20 @@ const SingleExperience = ({ experience }) => {
                                 }}
                             />
                         </Form.Group>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={showModal}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleUpdate}>
-                            Salva modifiche
-                        </Button>
-                    </Modal.Footer>
-                </Form>
+                    </Form> */}
+                    <ExperienceForm experience={experience} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={showModal}>
+                        Close
+                    </Button>
+                    {/* <Button variant="primary" onClick={handleUpdate}>
+                        Salva modifiche
+                    </Button> */}
+                    <Button variant="danger" onClick={handleDelete}>
+                        Elimina
+                    </Button>
+                </Modal.Footer>
             </Modal>
 
             <Card>
@@ -129,9 +133,6 @@ const SingleExperience = ({ experience }) => {
                     <Card.Text>{experience.description}</Card.Text>
                     <Button variant="primary" onClick={showModal}>
                         Modifica
-                    </Button>
-                    <Button variant="danger" onClick={handleDelete}>
-                        Elimina
                     </Button>
                 </Card.Body>
             </Card>
