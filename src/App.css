@@ -2,6 +2,7 @@
     text-align: center;
     padding-left: 5vw;
     padding-right: 10vw;
+    
 }
 
 #link {
@@ -86,3 +87,67 @@
 #imglink{
     width: 40px
 }
+
+.imgsidebar {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+ .imgsideprofile {
+    margin-bottom: -40px;
+    width: 100%;
+    height: 70px;
+    border-top-left-radius: 15px ;
+    border-top-right-radius: 15px ;
+}
+
+.cardheader {
+    padding: 0%;
+}
+.cardheader > h6 {
+    margin-bottom: 20px;
+}
+.listgroup {
+    display: flex;
+    text-align: left;
+    
+}
+.Cardside {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: small;
+    
+    
+}
+.premiumicons {
+    color: rgb(230, 206, 45);
+    
+}
+.iconsbook {
+    color: rgb(89, 89, 89);
+}
+
+.Cardside2 {
+    margin-top: 10px;
+}
+
+.Cardside2 > hr {
+    margin: 0%;
+}
+
+.link-c {
+    color: #0060c0;
+    font-size: small;
+    align-self: flex-start;
+}
+
+#list__group:hover{
+    background-color: rgb(243, 243, 243);
+}
+.link-d:hover{
+    background-color: rgb(243, 243, 243);
+}
+.link-d {
+    margin: 10px;
+}
+

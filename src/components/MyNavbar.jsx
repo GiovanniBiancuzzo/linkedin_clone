@@ -35,7 +35,7 @@ function MyNavbar() {
                             <Link
                                 href="#features"
                                 id="link"
-                                path="/home"
+                                to="/home"
                                 className="ms-3 mt-1"
                             >
                                 <FaHome id="icona" size={30} /> <p>home</p>
