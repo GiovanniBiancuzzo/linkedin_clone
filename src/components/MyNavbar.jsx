@@ -7,26 +7,33 @@ import { BsPeopleFill, BsGrid3X3GapFill } from "react-icons/bs";
 import { MdWork, MdNotifications } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {Form, Button, Image} from "react-bootstrap";
+import { Form, Button, Image } from "react-bootstrap";
 
 function MyNavbar() {
     const profile = useSelector((state) => state.profile.actualProfile);
+    const navigate = useNavigate();
 
     return (
         <Navbar collapseOnSelect bg="#fff" className="navbar">
-            <Navbar.Brand href="#home" xs={5}>
-                <img src="https://packagingspace.net/files/chunks/5d03ab97a0d5566f83000237/5d03aba5a0d5566f83000238.png" alt="" id="imglink" />
-            </Navbar.Brand>
+            <Link to="/">
+                <Navbar.Brand xs={5}>
+                    <img
+                        src="https://packagingspace.net/files/chunks/5d03ab97a0d5566f83000237/5d03aba5a0d5566f83000238.png"
+                        alt=""
+                        id="imglink"
+                    />
+                </Navbar.Brand>
+            </Link>
             <Button variant="outline-success">Search</Button>
             <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    id="searchBar"
-                    aria-label="Search"
-                  />
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                id="searchBar"
+                aria-label="Search"
+            />
             <Container xs={7} className="ms-auto" id="Container">
                 <section className="ml-auto">
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,7 +42,7 @@ function MyNavbar() {
                             <Link
                                 href="#features"
                                 id="link"
-                                to="/home"
+                                to="/"
                                 className="ms-3 mt-1"
                             >
                                 <FaHome id="icona" size={30} /> <p>home</p>
@@ -43,7 +50,7 @@ function MyNavbar() {
                             <Link
                                 href="#pricing"
                                 id="link"
-                                path="/home"
+                                to="/"
                                 className="ms-3 mt-1"
                             >
                                 {" "}
@@ -54,7 +61,7 @@ function MyNavbar() {
                             <Link
                                 href="#deets"
                                 id="link"
-                                path="/home"
+                                to="/"
                                 className="ms-3 mt-1"
                             >
                                 {" "}
@@ -63,14 +70,14 @@ function MyNavbar() {
                             <Link
                                 id="link"
                                 href="#memes"
-                                path="/home"
+                                to="/"
                                 className="ms-3 mt-1"
                             >
                                 {" "}
                                 <AiFillMessage id="icona" size={30} />{" "}
                                 <p>Messaggistica</p>
                             </Link>
-                            <Link path="/home" id="link" className="ms-3 mt-1">
+                            <Link to="/" id="link" className="ms-3 mt-1">
                                 <MdNotifications id="icona" size={30} />{" "}
                                 <p>Notifiche</p>
                             </Link>
@@ -86,15 +93,18 @@ function MyNavbar() {
                                     title={profile.name}
                                     id="collasible-nav-dropdown"
                                 >
-
                                     <NavDropdown.Item>
-                                    <Image
-                                    src={profile.image}
-                                    roundedCircle
-                                    width={"45px"}
-                                /><h6>Nome e Cognome</h6>
+                                        <Image
+                                            src={profile.image}
+                                            roundedCircle
+                                            width={"45px"}
+                                            onClick={() => navigate("/profile")}
+                                        />
+                                        <h6>
+                                            {profile.name} {profile.surname}
+                                        </h6>
                                     </NavDropdown.Item>
-                                    <NavDropdown.Divider/>
+                                    <NavDropdown.Divider />
                                     <NavDropdown.Item>
                                         <h5>Account</h5>
                                     </NavDropdown.Item>
@@ -138,9 +148,10 @@ function MyNavbar() {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </div>
-                            <Button variant="link" className="link-p">Prova premium gratis</Button>
+                            <Button variant="link" className="link-p">
+                                Prova premium gratis
+                            </Button>
                         </Nav>
-                      
                     </Navbar.Collapse>
                 </section>
             </Container>
