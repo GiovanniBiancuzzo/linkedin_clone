@@ -286,20 +286,20 @@ export const getPostsAction = () => {
                     type: GET_POSTS,
                     payload: data
                 });
-                setTimeout(() => {
-                    dispatch({
-                        type: LOADED_POSTS,
-                    });
-                }, 200);
+                // setTimeout(() => {
+                //     dispatch({
+                //         type: LOADED_POSTS,
+                //     });
+                // }, 200);
             })
             .catch(error => {
                 console.log(error);
-                dispatch({
-                    type: LOADED_POSTS,
-                });
-                dispatch({
-                    type: GET_POSTS_ERROR,
-                });
+                // dispatch({
+                //     type: LOADED_POSTS,
+                // });
+                // dispatch({
+                //     type: GET_POSTS_ERROR,
+                // });
             });
     };
 };
