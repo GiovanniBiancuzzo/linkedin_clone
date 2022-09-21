@@ -5,18 +5,20 @@ import FetchProfileFeature from './components/FetchProfileFeature';
 import NotFoundComponent from './components/NotFoundComponent';
 import { Row, Container } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyNavbar from "./components/MyNavbar";
+import MyCustomProfile from "./components/MyCustomProfile";
+import ExperiencesComponent from "./components/ExperiencesComponent";
 
 function App () {
   return (
     <BrowserRouter>
-      <Container fluid>
-        <Row className="App">
-          <Routes>
-            <Route path='/' element={<FetchProfileFeature />}></Route>
-            <Route path='*' element={<NotFoundComponent />}></Route>
-          </Routes>
-        </Row>
-      </Container>
+      <div className="App">
+        <MyNavbar />
+        <MyCustomProfile />
+        <ExperiencesComponent />
+      </div>
     </BrowserRouter>
   );
 }
