@@ -25,9 +25,11 @@ const ExperienceForm = (props) => {
         if (props.create) {
             console.log("create");
             dispatch(createExperienceAction(data));
+            props.showModal();
         } else if (props.update) {
             console.log("update");
             dispatch(updateExperienceAction(props.experience, data));
+            props.showModal();
         }
     };
 
@@ -145,7 +147,7 @@ const ExperienceForm = (props) => {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">
-                            Invia
+                            Invia esperienza
                         </Button>
                     </Form>
                 </Col>

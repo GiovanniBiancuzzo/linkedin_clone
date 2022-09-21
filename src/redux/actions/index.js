@@ -281,25 +281,25 @@ export const getPostsAction = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 dispatch({
                     type: GET_POSTS,
-                    payload: data
+                    payload: data.reverse()
                 });
-                // setTimeout(() => {
-                //     dispatch({
-                //         type: LOADED_POSTS,
-                //     });
-                // }, 200);
+                setTimeout(() => {
+                    dispatch({
+                        type: LOADED_POSTS,
+                    });
+                });
             })
             .catch(error => {
                 console.log(error);
-                // dispatch({
-                //     type: LOADED_POSTS,
-                // });
-                // dispatch({
-                //     type: GET_POSTS_ERROR,
-                // });
+                dispatch({
+                    type: LOADED_POSTS,
+                });
+                dispatch({
+                    type: GET_POSTS_ERROR,
+                });
             });
     };
 };
@@ -358,9 +358,9 @@ export const createPostAction = (data) => {
     };
 };
 
-export const updatePostAction = (post, data) => {
+export const updatePostAction = (postID, data) => {
     return (dispatch, getState) => {
-        fetch(`${endpointApi}/posts/${post._id}`, {
+        fetch(`${endpointApi}/posts/${postID}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -370,16 +370,15 @@ export const updatePostAction = (post, data) => {
         })
             .then(res => res.json())
             .then((result) => {
-                console.log(result);
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));
     };
 };
-export const deletePostAction = (post) => {
+export const deletePostAction = (postID) => {
     return (dispatch, getState) => {
-        const userID = getState().profile.actualProfile._id;
-        fetch(`${endpointApi}/posts/${post._id}`, {
+        // const userID = getState().profile.actualProfile._id;
+        fetch(`${endpointApi}/posts/${postID}`, {
             method: "DELETE",
             headers: {
                 // "Content-Type": "application/json",
