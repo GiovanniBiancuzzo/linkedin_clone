@@ -9,6 +9,7 @@ import {
 const ExperienceForm = (props) => {
     const actualProfile = useSelector((state) => state.profile.actualProfile);
     const [data, setData] = useState({
+        //! autoriempi i campi per l'update
         area: "", //   actualProfile.area,
         company: "", //     actualProfile.company,
         description: "", //     actualProfile.description,
