@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import { Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getActualProfileAction, getProfilesAction } from "../redux/actions";
 import PostFeatureComponent from "./PostFeatureComponent";
+import Sidebarleft from "./Sidebarleft";
 
 const HomeComponent = () => {
     const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
@@ -17,7 +19,12 @@ const HomeComponent = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <PostFeatureComponent />;
+    return (
+        <Row>
+            <Sidebarleft />
+            <PostFeatureComponent />
+        </Row>
+    );
 };
 
 export default HomeComponent;
