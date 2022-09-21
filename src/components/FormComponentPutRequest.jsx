@@ -1,27 +1,35 @@
-import { Button, Col } from "bootstrap";
 import { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Button, Col, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Form, useParams } from "react-router-dom";
 import { updateProfileAction } from "../redux/actions";
 
 const FormComponentPutRequest = () => {
-    const [data, setData] = useState(null);
-    const params = useParams();
+    const [data, setData] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        bio: "",
+        title: "",
+        area: "",
+    });
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(updateProfileAction(data)));
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        console.log("update profile");
+        dispatch(updateProfileAction(data));
+    };
 
-    const handleSubmit = () => {};
+    // useEffect(() => dispatch(updateProfileAction(data)));
 
     return (
         <Container>
             <Row>
                 {/* <Col xs={12} md={6}> */}
                 <Col>
-                    <Form className="text-left" onSubmit={handleSubmit}>
+                    <Form className="text-left" onSubmit={handleUpdate}>
                         <Form.Group>
-                            <Form.Label>Company</Form.Label>
+                            <Form.Label>Name</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Enter your Name"
@@ -36,15 +44,15 @@ const FormComponentPutRequest = () => {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Role</Form.Label>
+                            <Form.Label>Surname</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter your Role"
-                                value={data.role}
+                                placeholder="Enter your surname"
+                                value={data.surname}
                                 onChange={(e) => {
                                     setData({
                                         ...data,
-                                        role: e.target.value,
+                                        surname: e.target.value,
                                     });
                                 }}
                             />
@@ -52,30 +60,31 @@ const FormComponentPutRequest = () => {
 
                         <Form.Row>
                             <Form.Group>
-                                <Form.Label>Start Date</Form.Label>
+                                <Form.Label>Email</Form.Label>
                                 <Form.Control
-                                    type="date"
-                                    placeholder="Enter Date"
-                                    value={data.startDate}
+                                    type="email"
+                                    placeholder="Enter email"
+                                    value={data.email}
                                     onChange={(e) => {
                                         setData({
                                             ...data,
-                                            startDate: e.target.value,
+                                            email: e.target.value,
                                         });
                                     }}
                                 />
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>End Date(or expected)</Form.Label>
+                                <Form.Label>Bio</Form.Label>
                                 <Form.Control
-                                    type="date"
-                                    placeholder="Enter Date"
-                                    value={data.endDate}
+                                    type="textarea"
+                                    rows={2}
+                                    placeholder="Enter bio"
+                                    value={data.bio}
                                     onChange={(e) => {
                                         setData({
                                             ...data,
-                                            endDate: e.target.value,
+                                            bio: e.target.value,
                                         });
                                     }}
                                 />
@@ -83,16 +92,14 @@ const FormComponentPutRequest = () => {
                         </Form.Row>
 
                         <Form.Group>
-                            <Form.Label>Description</Form.Label>
+                            <Form.Label>Title</Form.Label>
                             <Form.Control
                                 type="text"
-                                as="textarea"
-                                rows={2}
-                                value={data.description}
+                                value={data.title}
                                 onChange={(e) => {
                                     setData({
                                         ...data,
-                                        description: e.target.value,
+                                        title: e.target.value,
                                     });
                                 }}
                             />
