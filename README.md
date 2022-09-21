@@ -1,10 +1,11 @@
 ## LinkedIn_Clone
 
 Team composto da:
--  https://github.com/GiovanniBiancuzzo
--  https://github.com/HamzaMajeed97
--  https://github.com/LucaT003
--  https://github.com/Kappi90
+
+-   https://github.com/GiovanniBiancuzzo
+-   https://github.com/HamzaMajeed97
+-   https://github.com/LucaT003
+-   https://github.com/Kappi90
 
 React Build Week - Team 4
 
@@ -22,4 +23,6 @@ Funzionalità
 -   fetch delle experiences, da migliorare update e actions, persistenti
 -   fetch dei post, con operazioni crud e actions
 -   home component
+-   sidebar
+-   not found page
 -   routing

@@ -4,12 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/MyNavbar";
 import HomeComponent from "./components/HomeComponent";
 import MyCustomProfile from "./components/MyCustomProfile";
-import Home from "./components/Home";
-import Sidebarleft from "./components/Sidebarleft";
+
 import NotFoundComponent from './components/NotFoundComponent';
 import ExperiencesComponent from "./components/ExperiencesComponent";
 import PostCard from './components/PostCard';
 import MyFeed from './components/MyFeed';
+import Sidebarleft from './components/Sidebarleft';
 
 function App () {
   return (
