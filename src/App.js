@@ -5,8 +5,6 @@ import FetchProfileFeature from './components/FetchProfileFeature';
 import NotFoundComponent from './components/NotFoundComponent';
 import { Row, Container } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNavbar from "./components/MyNavbar";
 import MyCustomProfile from "./components/MyCustomProfile";
 import ExperiencesComponent from "./components/ExperiencesComponent";
