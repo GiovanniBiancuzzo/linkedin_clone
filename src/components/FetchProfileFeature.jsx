@@ -14,13 +14,13 @@ import {
     getActualProfileAction,
     updateProfileAction,
 } from "../redux/actions";
-import FormComponentPutRequest from "./FormComponentPutRequest";
+import FormUpdateProfile from "./FormUpdateProfile";
 
 const FetchProfileFeature = () => {
     const profile = useSelector((state) => state.profile.actualProfile); // recupero di un profilo dallo store
     const userID = "6328189d6d79a500150902e7"; //mio id
-    const [show, setShow] = useState(false);
 
+    const [show, setShow] = useState(false);
     const showModal = () => setShow(!show);
     const dispatch = useDispatch();
 
@@ -82,7 +82,7 @@ const FetchProfileFeature = () => {
                     <Modal.Title>Modifica profilo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <FormComponentPutRequest />
+                    <FormUpdateProfile />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={showModal}>

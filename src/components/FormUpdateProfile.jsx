@@ -3,14 +3,14 @@ import { Container, Row, Button, Col, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { updateProfileAction } from "../redux/actions";
 
-const FormComponentPutRequest = () => {
+const FormUpdateProfile = ({ profile }) => {
     const [data, setData] = useState({
-        name: "",
-        surname: "",
-        email: "",
-        bio: "",
-        title: "",
-        area: "",
+        name: profile.name,
+        surname: profile.surname,
+        email: profile.email,
+        bio: profile.bio,
+        title: profile.title,
+        area: profile.area,
     });
     const dispatch = useDispatch();
 
@@ -58,39 +58,6 @@ const FormComponentPutRequest = () => {
                             />
                         </Form.Group>
 
-                        <Form.Row>
-                            <Form.Group>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    type="email"
-                                    placeholder="Enter email"
-                                    value={data.email}
-                                    onChange={(e) => {
-                                        setData({
-                                            ...data,
-                                            email: e.target.value,
-                                        });
-                                    }}
-                                />
-                            </Form.Group>
-
-                            <Form.Group>
-                                <Form.Label>Bio</Form.Label>
-                                <Form.Control
-                                    type="textarea"
-                                    rows={2}
-                                    placeholder="Enter bio"
-                                    value={data.bio}
-                                    onChange={(e) => {
-                                        setData({
-                                            ...data,
-                                            bio: e.target.value,
-                                        });
-                                    }}
-                                />
-                            </Form.Group>
-                        </Form.Row>
-
                         <Form.Group>
                             <Form.Label>Title</Form.Label>
                             <Form.Control
@@ -100,6 +67,21 @@ const FormComponentPutRequest = () => {
                                     setData({
                                         ...data,
                                         title: e.target.value,
+                                    });
+                                }}
+                            />
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                value={data.email}
+                                onChange={(e) => {
+                                    setData({
+                                        ...data,
+                                        email: e.target.value,
                                     });
                                 }}
                             />
@@ -120,6 +102,22 @@ const FormComponentPutRequest = () => {
                             />
                         </Form.Group>
 
+                        <Form.Group>
+                            <Form.Label>Bio</Form.Label>
+                            <Form.Control
+                                type="textarea"
+                                rows={3}
+                                placeholder="Enter bio"
+                                value={data.bio}
+                                onChange={(e) => {
+                                    setData({
+                                        ...data,
+                                        bio: e.target.value,
+                                    });
+                                }}
+                            />
+                        </Form.Group>
+
                         <Button variant="primary" type="submit">
                             Invia
                         </Button>
@@ -130,4 +128,4 @@ const FormComponentPutRequest = () => {
     );
 };
 
-export default FormComponentPutRequest;
+export default FormUpdateProfile;
