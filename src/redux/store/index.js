@@ -4,17 +4,19 @@ import experiencesReducer from '../reducers/experiencesReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';//i metodi di persist
 import storage from 'redux-persist/lib/storage';
+import postsReducer from '../reducers/postsReducer';
 // import { encryptTransform } from 'redux-persist-transform-encrypt';
 
 const mainReducer = combineReducers({
     profile: profilesReducer,
-    experience: experiencesReducer
+    experience: experiencesReducer,
+    post: postsReducer
 });
 
 const persistConfig = ({
     key: 'root',//da dove vogliamo cominciare a salvare informazioni
     storage,//o anche solo 'storage'
-    // blacklist: ['search', 'job'],
+    blacklist: ['post'],
     // transforms: [encryptTransform({
     //     secretKey: process.env.REACT_APP_PERSIST_KEY//chiave contenuta in .env
     // })]

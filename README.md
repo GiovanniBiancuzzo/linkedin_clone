@@ -11,4 +11,9 @@ Utilizzo di
 
 Funzionalità
 
--   fetch dei profili e delle experiences, da testare approfonditamente le operazioni crud, creazione dello store peristente
+-   creazione dello store peristente
+-   fetch dei profili con operazioni crud e actions, persistenti
+-   fetch delle experiences, da migliorare update e actions, persistenti
+-   fetch dei post, con operazioni crud e actions
+-   home component
+-   routing

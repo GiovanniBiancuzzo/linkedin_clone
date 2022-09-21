@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getActualProfileAction, getProfilesAction } from "../redux/actions";
 import FormUpdateProfile from "./FormUpdateProfile";
+import ExperiencesComponent from "./ExperiencesComponent";
 
 const MyCustomProfile = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
@@ -52,6 +53,7 @@ const MyCustomProfile = () => {
                         </Col>
                     )}
                 </Row>
+                <ExperiencesComponent />
             </Container>
 
             <Modal centered show={show} onHide={showModal}>
