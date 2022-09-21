@@ -82,7 +82,12 @@
 #searchBar {
     width: 10vw;
 }
- 
-#imglink{
-    width: 40px
+
+#imglink {
+    width: 40px;
 }
+/* 
+.loadingSpinner {
+    width: 40vw;
+    height: 40vw;
+} */

@@ -12,10 +12,7 @@ const ExperiencesComponent = () => {
 
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
-
     const showModal = () => setShow(!show);
-
-    const handleCreate = () => {};
 
     useEffect(() => {
         dispatch(getExperiencesAction(userID)); // si caricano in store tutte le experiences
@@ -42,7 +39,10 @@ const ExperiencesComponent = () => {
                     <Modal.Title>Crea esperienza</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <ExperienceForm create={createExperienceAction} />
+                    <ExperienceForm
+                        create={createExperienceAction}
+                        showModal={showModal}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={showModal}>
