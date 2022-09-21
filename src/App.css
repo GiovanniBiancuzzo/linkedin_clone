@@ -2,7 +2,6 @@
     text-align: center;
     padding-left: 5vw;
     padding-right: 10vw;
-    
 }
 
 #link {
@@ -83,9 +82,9 @@
 #searchBar {
     width: 10vw;
 }
- 
-#imglink{
-    width: 40px
+
+#imglink {
+    width: 40px;
 }
 
 .imgsidebar {
@@ -93,12 +92,12 @@
     margin-bottom: 15px;
 }
 
- .imgsideprofile {
+.imgsideprofile {
     margin-bottom: -40px;
     width: 100%;
     height: 70px;
-    border-top-left-radius: 15px ;
-    border-top-right-radius: 15px ;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .cardheader {
@@ -110,18 +109,14 @@
 .listgroup {
     display: flex;
     text-align: left;
-    
 }
 .Cardside {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: small;
-    
-    
 }
 .premiumicons {
     color: rgb(230, 206, 45);
-    
 }
 .iconsbook {
     color: rgb(89, 89, 89);
@@ -141,16 +136,15 @@
     align-self: flex-start;
 }
 
-#list__group:hover{
+#list__group:hover {
     background-color: rgb(243, 243, 243);
 }
-.link-d:hover{
+.link-d:hover {
     background-color: rgb(243, 243, 243);
 }
 .link-d {
     margin: 10px;
 }
-
 
 #imglink {
     width: 40px;
@@ -163,23 +157,20 @@
 
 /* FEED AND CARD */
 
-
-.feed{
+.feed {
     flex: 0.6;
     margin: 0 20px;
 }
 
-
-.feed-inputContainer{
-   background-color: white;
-   padding: 10px;
-   padding-bottom: 20px;
-   border-radius: 10px;
-   margin-bottom: 20px;
+.feed-inputContainer {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-
-.feed-input{
+.feed-input {
     border: 1px solid lightgray;
     border-radius: 30px;
     display: flex;
@@ -188,12 +179,10 @@
     padding-left: 15px;
 }
 
-.feed-input > form{
+/* .feed-input > form {
     display: flex;
     width: 100%;
-
 }
-
 
 .feed-input > form > input {
     border: none;
@@ -201,9 +190,10 @@
     margin-left: 10px;
     outline-width: 0;
     font-weight: 600;
+    background-color: transparent;
 }
 
-.feed-input > form > button{
-    display: none;
-}
-
+.feedInputButton {
+    background-color: transparent;
+    border: none;
+} */

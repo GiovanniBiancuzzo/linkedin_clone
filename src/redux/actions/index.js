@@ -281,10 +281,9 @@ export const getPostsAction = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 dispatch({
                     type: GET_POSTS,
-                    payload: data.reverse()
+                    payload: data.slice(-100).reverse()
                 });
                 setTimeout(() => {
                     dispatch({

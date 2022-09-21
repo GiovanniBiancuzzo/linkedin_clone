@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useSelector } from "react-redux";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { MdPersonAddAlt1 } from "react-icons/md";
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Image } from "react-bootstrap";
 import { AiFillSketchSquare } from "react-icons/ai";
 
 const Sidebarleft = () => {
@@ -18,7 +18,7 @@ const Sidebarleft = () => {
                         alt=""
                         className="imgsideprofile"
                     />
-                    <img
+                    <Image
                         className="imgsidebar"
                         src={profile.image}
                         roundedCircle
@@ -26,9 +26,11 @@ const Sidebarleft = () => {
                     />
 
                     <h5>
-                        <b>Giovanni Biancuzzo</b>
+                        <b>
+                            {profile.name} {profile.surname}
+                        </b>
                     </h5>
-                    <h6>Junior Front End Developer</h6>
+                    <h6>{profile.title}</h6>
                 </Card.Header>
 
                 <ListGroup variant="flush" className="listgroup">

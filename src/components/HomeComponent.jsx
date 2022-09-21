@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getActualProfileAction, getProfilesAction } from "../redux/actions";
-import PostFeatureComponent from "./PostFeatureComponent";
+import PostsComponent from "./PostsComponent";
 import Sidebarleft from "./Sidebarleft";
 
 const HomeComponent = () => {
@@ -20,10 +20,12 @@ const HomeComponent = () => {
     }, []);
 
     return (
-        <Row>
-            <Sidebarleft />
-            <PostFeatureComponent />
-        </Row>
+        <>
+            <Row>
+                <Sidebarleft />
+                <PostsComponent />
+            </Row>
+        </>
     );
 };
 
