@@ -9,7 +9,7 @@ import ExperiencesComponent from "./ExperiencesComponent";
 
 const MyCustomProfile = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
-    const userID = "6328189d6d79a500150902e7"; //mio id
+    const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
 
     const [show, setShow] = useState(false);
     const showModal = () => setShow(!show);
@@ -17,9 +17,10 @@ const MyCustomProfile = () => {
 
     useEffect(() => {
         dispatch(getProfilesAction()); // si caricano in store tutti i profili
-        dispatch(getActualProfileAction(userID)); // in base all'id selezionato, si setta un profilo attuale
+        dispatch(getActualProfileAction(IDGiovanni)); // in base all'id selezionato, si setta un profilo attuale
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     return (
         <>
             <Container>

@@ -14,7 +14,6 @@ const postsReducer = (state = initialState, action) => {
                 ...state,
                 posts: action.payload
             };
-
         case GET_SINGLE_POST:
             return {
                 ...state,
