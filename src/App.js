@@ -7,13 +7,20 @@ import MyCustomProfile from "./components/MyCustomProfile";
 import Home from "./components/Home";
 import Sidebarleft from "./components/Sidebarleft";
 import NotFoundComponent from './components/NotFoundComponent';
+import ExperiencesComponent from "./components/ExperiencesComponent";
+import PostCard from './components/PostCard';
+import MyFeed from './components/MyFeed';
 
 function App () {
   return (
     <BrowserRouter>
       <div className="App">
+
         <MyNavbar />
         <Sidebarleft/>
+        {/* <MyFeed/> */}
+
+        <PostCard/>
         <MyCustomProfile />
         <Routes>
           <Route path='/' element={<HomeComponent />} />
