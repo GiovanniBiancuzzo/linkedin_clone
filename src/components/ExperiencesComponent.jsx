@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Modal, Spinner } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createExperienceAction, getExperiencesAction } from "../redux/actions";
 import ExperienceForm from "./ExperienceForm";
 import MyExperiences from "./MyExperiences";
+import SingleExperience from "./SingleExperience";
 
 const ExperiencesComponent = () => {
     const experiences = useSelector((state) => state.experience.experiences); // recupero delle experiences dallo store
@@ -27,9 +28,14 @@ const ExperiencesComponent = () => {
             <Button onClick={showModal}>Aggiungi esperienza</Button>
             <Col>
                 {!loadedExperiences ? (
-                    !errorExperiences && (
-                        <MyExperiences experiences={experiences} />
-                    )
+                    !errorExperiences &&
+                    experiences.map((experience) => (
+                        <SingleExperience
+                            key={experience._id}
+                            userID={experience.user}
+                            experience={experience}
+                        />
+                    ))
                 ) : (
                     <Spinner
                         animation="grow"

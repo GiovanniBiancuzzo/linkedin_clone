@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/MyNavbar";
 import HomeComponent from "./components/HomeComponent";
 import MyCustomProfile from "./components/MyCustomProfile";
-import MyExperiences from "./components/MyExperiences";
 import NotFoundComponent from './components/NotFoundComponent';
 
 function App () {
