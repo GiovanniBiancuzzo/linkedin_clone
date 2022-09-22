@@ -3,8 +3,8 @@ import { Button, Col, Container, Modal, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createExperienceAction, getExperiencesAction } from "../redux/actions";
 import ExperienceForm from "./ExperienceForm";
-import MyExperiences from "./MyExperiences";
 import SingleExperience from "./SingleExperience";
+import "../styles/myExperience.css";
 
 const ExperiencesComponent = () => {
     const experiences = useSelector((state) => state.experience.experiences); // recupero delle experiences dallo store
