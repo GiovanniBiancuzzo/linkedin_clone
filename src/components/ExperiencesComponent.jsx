@@ -3,6 +3,7 @@ import { Button, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createExperienceAction, getExperiencesAction } from "../redux/actions";
 import ExperienceForm from "./ExperienceForm";
+import MyExperiences from "./MyExperiences";
 import SingleExperience from "./SingleExperience";
 
 const ExperiencesComponent = () => {
@@ -23,16 +24,7 @@ const ExperiencesComponent = () => {
     return (
         <>
             <Button onClick={showModal}>Aggiungi esperienza</Button>
-            <Col>
-                {experiences &&
-                    experiences.map((experience) => (
-                        <SingleExperience
-                            key={experience._id}
-                            userID={experience.user}
-                            experience={experience}
-                        />
-                    ))}
-            </Col>
+            <MyExperiences />
 
             <Modal centered show={show} onHide={showModal}>
                 <Modal.Header closeButton>

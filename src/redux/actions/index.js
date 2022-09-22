@@ -122,7 +122,7 @@ export const updateProfileAction = (data) => {
     };
 };
 
-//note: actions per le experience
+//note: actions per le experiences
 export const getExperiencesAction = () => {
     return (dispatch, getState) => {
         const userID = getState().profile.actualProfile._id;
