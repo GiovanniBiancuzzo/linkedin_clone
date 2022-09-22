@@ -37,14 +37,8 @@ const PostCard = ({ post }) => {
     return (
         <>
             <div className="post">
-                {
-                    //todo: serve un post header per l'autore dei post con pulsanti cancella
-                }
-                <div className="post-body">
+                <div className="d-flex justify-content-between post-body">
                     <p>{post.username}</p>
-                </div>
-                <span>
-                    {" "}
                     <Dropdown alignRight>
                         <Dropdown.Toggle
                             variant="secondary"
@@ -76,7 +70,7 @@ const PostCard = ({ post }) => {
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                </span>
+                </div>
                 <blockquote className="blockquote mb-0">
                     <p>{post.text}</p>
                     <footer className="blockquote-footer">

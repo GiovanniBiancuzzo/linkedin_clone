@@ -46,10 +46,18 @@ const SingleExperience = ({ experience }) => {
             </Modal>
 
             <div id="experience-container">
-                <h4>
-                    {experience.company}{" "}
-                    <HiOutlinePencil style={{ textAlign: "end" }} />
-                </h4>
+                <div className="d-flex justify-content-between">
+                    <h4>{experience.company} </h4>
+                    <Button
+                        onClick={showModal}
+                        style={{
+                            backgroundColor: "transparent",
+                            border: "none",
+                        }}
+                    >
+                        <HiOutlinePencil style={{ textAlign: "end" }} />
+                    </Button>
+                </div>
                 <div>Role: {experience.role}</div>
                 {experience.endDate ? (
                     <div>
@@ -65,10 +73,6 @@ const SingleExperience = ({ experience }) => {
                 )}
                 <div>Area: {experience.area}</div>
                 <p>Description: {experience.description}</p>
-
-                <Button variant="primary" onClick={showModal}>
-                    Modifica
-                </Button>
             </div>
         </>
     );
