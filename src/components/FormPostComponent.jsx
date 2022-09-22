@@ -46,7 +46,7 @@ const FormPostComponent = () => {
                 </Modal.Header>{" "}
                 <Form onSubmit={handleCreate}>
                     <Modal.Body>
-                        <Form.Control
+                        <Form.Control 
                             type="text"
                             as="textarea"
                             rows={2}

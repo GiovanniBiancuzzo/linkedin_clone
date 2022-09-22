@@ -45,7 +45,7 @@ function MyNavbar() {
                                 to="/"
                                 className="ms-3 mt-1"
                             >
-                                <FaHome id="icona" size={30} /> <p>home</p>
+                                <FaHome id="icona" size={22} /> <p>home</p>
                             </Link>
                             <Link
                                 href="#pricing"
@@ -54,7 +54,7 @@ function MyNavbar() {
                                 className="ms-3 mt-1"
                             >
                                 {" "}
-                                <BsPeopleFill id="icona" size={30} />{" "}
+                                <BsPeopleFill id="icona" size={22} />{" "}
                                 <p>Rete</p>
                             </Link>
 
@@ -65,7 +65,7 @@ function MyNavbar() {
                                 className="ms-3 mt-1"
                             >
                                 {" "}
-                                <MdWork id="icona" size={30} /> <p>Lavoro</p>
+                                <MdWork id="icona" size={22} /> <p>Lavoro</p>
                             </Link>
                             <Link
                                 id="link"
@@ -74,11 +74,11 @@ function MyNavbar() {
                                 className="ms-3 mt-1"
                             >
                                 {" "}
-                                <AiFillMessage id="icona" size={30} />{" "}
+                                <AiFillMessage id="icona" size={22} />{" "}
                                 <p>Messaggistica</p>
                             </Link>
                             <Link to="/" id="link" className="ms-3 mt-1">
-                                <MdNotifications id="icona" size={30} />{" "}
+                                <MdNotifications id="icona" size={22} />{" "}
                                 <p>Notifiche</p>
                             </Link>
 
@@ -128,7 +128,7 @@ function MyNavbar() {
                             </div>
 
                             <div className="iconLavoro">
-                                <BsGrid3X3GapFill id="icona" size={30} />
+                                <BsGrid3X3GapFill id="icona" size={22} />
                                 <NavDropdown
                                     title="Lavoro"
                                     id="collasible-nav-dropdown"
