@@ -10,7 +10,7 @@ const Sidebarleft = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
 
     return (
-        <Col sm={3}>
+        <Col sm={3}  >
             <Card style={{ width: "15rem" }} className="Cardside">
                 <Card.Header className="cardheader">
                     <img

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getActualProfileAction, getProfilesAction } from "../redux/actions";
 import PostsComponent from "./PostsComponent";
 import Sidebarleft from "./Sidebarleft";
+import SideShow from "./SideShow";
 
 const HomeComponent = () => {
     const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
@@ -24,6 +25,7 @@ const HomeComponent = () => {
             <Row>
                 <Sidebarleft />
                 <PostsComponent />
+                <SideShow/>
             </Row>
         </>
     );
