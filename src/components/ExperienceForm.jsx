@@ -29,7 +29,6 @@ const ExperienceForm = (props) => {
     });
 
     const [dataImage, setDataImage] = useState(null);
-    const formData = new FormData();
 
     const dispatch = useDispatch();
 
@@ -37,6 +36,10 @@ const ExperienceForm = (props) => {
         e.preventDefault();
         if (dataImage !== null) {
             console.log("sono dento il formdata");
+            const formData = new FormData();
+            formData.append("experience", {
+                dataImage,
+            });
             dispatch(
                 uploadImageExperienceAction(props.experience._id, formData)
             );
@@ -68,11 +71,7 @@ const ExperienceForm = (props) => {
                                 placeholder="Upload your image"
                                 // accept="image"
                                 onChange={(e) => {
-                                    console.log("onchange di upload");
                                     setDataImage(e.target.files[0]);
-                                    formData.append("experience", {
-                                        dataImage,
-                                    });
                                 }}
                             />
                         </Form.Group>

@@ -2,37 +2,43 @@ import { useState, useEffect } from "react";
 import { Container, Row, Button, Col, Form, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import {
+    getActualProfileAction,
     updateProfileAction,
     uploadImageProfileAction,
 } from "../redux/actions";
 
-const FormUpdateProfile = ({ profile }) => {
+const FormUpdateProfile = (props) => {
     const [data, setData] = useState({
-        name: profile.name,
-        surname: profile.surname,
-        email: profile.email,
-        bio: profile.bio,
-        title: profile.title,
-        area: profile.area,
-        image: profile.image,
+        name: props.profile.name,
+        surname: props.profile.surname,
+        email: props.profile.email,
+        bio: props.profile.bio,
+        title: props.profile.title,
+        area: props.profile.area,
+        image: props.profile.image,
     });
 
     const [dataImage, setDataImage] = useState(null);
 
     const dispatch = useDispatch();
-    const formData = new FormData();
 
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log("update profile");
         if (dataImage !== null) {
-            console.log("sono dento il formdata");
+            const formData = new FormData();
+            formData.append("profile", dataImage);
             dispatch(uploadImageProfileAction(formData));
+        } else {
+            dispatch(updateProfileAction(data));
         }
-        dispatch(updateProfileAction(data));
+        props.showModal();
     };
 
-    // useEffect(() => dispatch(updateProfileAction(data)));
+    // useEffect(
+    //     () => dispatch(getActualProfileAction(props.profile._id)),
+    //     [data]
+    // );
 
     return (
         <Container>
@@ -45,20 +51,15 @@ const FormUpdateProfile = ({ profile }) => {
                                 <Col>
                                     <Form.Label>Immagine profilo</Form.Label>
                                 </Col>
-
                                 <Image src={data.image} width={"80px"}></Image>
                             </div>
                             <Form.Control
                                 type="file"
                                 placeholder="Upload your image"
-                                // accept="image"
+                                accept="image"
                                 onChange={(e) => {
                                     console.log("onchange di upload");
                                     setDataImage(e.target.files[0]);
-                                    formData.append(
-                                        "profile",
-                                        e.target.files[0]
-                                    );
                                 }}
                             />
                         </Form.Group>

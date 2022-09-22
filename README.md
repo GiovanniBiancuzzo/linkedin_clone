@@ -22,6 +22,7 @@ Funzionalità
 -   fetch dei profili con operazioni crud e actions, persistenti
 -   fetch delle experiences, da migliorare update e actions, persistenti
 -   fetch dei post, con operazioni crud e actions
+-   implementazione upload di foto in profilo, experience e post
 -   home component
 -   sidebar
 -   not found page

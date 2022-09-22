@@ -12,11 +12,18 @@ const FormPostComponent = () => {
     const showModal = () => setShow(!show);
 
     const [dataImage, setDataImage] = useState(null);
-    const formData = new FormData();
 
     const handleCreate = (e) => {
         e.preventDefault();
         console.log("create post");
+        // if (dataImage !== null) {
+        const formData = new FormData();
+        formData.append("post", {
+            dataImage,
+        });
+        //     dispatch(uploadImagePostAction(formData));
+        // } else {
+        // }
         dispatch(createPostAction(data, formData));
         setData({
             text: "",
@@ -51,20 +58,16 @@ const FormPostComponent = () => {
                     <Modal.Body>
                         <Form.Group>
                             <div className=" m-2">
-                                <Form.Label>Logo esperienza</Form.Label>
+                                <Form.Label>Carica una foto</Form.Label>
                                 <Image src={data.image} width={"30px"}></Image>
                             </div>
                             <Form.Control
                                 type="file"
                                 placeholder="Upload your image"
                                 // accept="image"
-                                onChange={(e) => {
-                                    console.log("onchange di upload");
-                                    setDataImage(e.target.files[0]);
-                                    formData.append("post", {
-                                        dataImage,
-                                    });
-                                }}
+                                onChange={(e) =>
+                                    setDataImage(e.target.files[0])
+                                }
                             />
                         </Form.Group>
 
@@ -74,6 +77,7 @@ const FormPostComponent = () => {
                                 as="textarea"
                                 rows={2}
                                 placeholder="Di che cosa vorresti parlare?"
+                                required
                                 value={data.text}
                                 onChange={(e) => {
                                     setData({
@@ -81,7 +85,6 @@ const FormPostComponent = () => {
                                         text: e.target.value,
                                     });
                                 }}
-                                onClick={showModal}
                             />
                         </Form.Group>
                         <a href="#">Aggiungi hashtag</a>

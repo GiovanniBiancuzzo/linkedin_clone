@@ -4,7 +4,15 @@ import { RiShareForwardLine, RiSendPlaneFill } from "react-icons/ri";
 
 import "../styles/postCard.css";
 import { useState } from "react";
-import { Button, Dropdown, Form, Image, Modal } from "react-bootstrap";
+import {
+    Button,
+    Col,
+    Dropdown,
+    Form,
+    Image,
+    Modal,
+    Row,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
     deletePostAction,
@@ -25,22 +33,24 @@ const PostCard = ({ post }) => {
 
     const dispatch = useDispatch();
     const [dataImage, setDataImage] = useState(null);
-    const formData = new FormData();
 
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log("update post");
         if (dataImage !== null) {
-            console.log("sono dento il formdata");
+            const formData = new FormData();
+            formData.append("post", {
+                dataImage,
+            });
             dispatch(uploadImagePostAction(post._id, formData));
+        } else {
+            dispatch(updatePostAction(post._id, data));
         }
-        dispatch(updatePostAction(post._id, data));
         showUpdateModal();
     };
 
     const handleDelete = (e) => {
         e.preventDefault();
-        console.log("delete post");
         dispatch(deletePostAction(post._id));
         showDeleteModal();
     };
@@ -49,18 +59,16 @@ const PostCard = ({ post }) => {
         <>
             <div className="post">
                 <div className="d-flex justify-content-between post-body">
-                    <div>
-                        <Image
-                            src={
-                                profiles.filter(
-                                    (profile) =>
-                                        profile.username === post.username
-                                ).image
-                            }
-                            width={"10px"}
-                        ></Image>{" "}
-                        <p>{post.username}</p>
-                    </div>
+                    <Row>
+                        <Col>
+                            <Image
+                                src={post.user.image}
+                                rounded
+                                width={"25px"}
+                            ></Image>
+                            <p>{post.username}</p>
+                        </Col>
+                    </Row>
                     <Dropdown alignRight>
                         <Dropdown.Toggle
                             variant="secondary"
@@ -81,6 +89,9 @@ const PostCard = ({ post }) => {
                 </div>
                 <blockquote className="blockquote mb-0">
                     <p>{post.text}</p>
+                    {post.image && (
+                        <Image src={post.image} width={"100px"}></Image>
+                    )}
                     <footer className="blockquote-footer">
                         <cite title="Source Title">
                             Creato alle{" "}
@@ -123,14 +134,10 @@ const PostCard = ({ post }) => {
                             <Form.Control
                                 type="file"
                                 placeholder="Upload your image"
-                                // accept="image"
-                                onChange={(e) => {
-                                    console.log("onchange di upload");
-                                    setDataImage(e.target.files[0]);
-                                    formData.append("post", {
-                                        dataImage,
-                                    });
-                                }}
+                                accept="image"
+                                onChange={(e) =>
+                                    setDataImage(e.target.files[0])
+                                }
                             />
                         </Form.Group>
 

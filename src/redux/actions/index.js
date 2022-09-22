@@ -93,19 +93,18 @@ export const getActualProfileAction = (userID) => {
     };
 };
 
-export const uploadImageProfileAction = (data) => {
+export const uploadImageProfileAction = (formData) => {
     return (dispatch, getState) => {
         const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/picture`, {
             method: "POST",
-            body: data,
+            body: formData,
             headers: {
                 Authorization: `Bearer ${keyGiovanni}`,
             },
         })
             .then(res => res.json())
             .then((result) => {
-                console.log(result);
                 dispatch(getActualProfileAction);
                 // setTimeout(() => {
                 //     dispatch({
@@ -137,7 +136,6 @@ export const updateProfileAction = (data) => {
         })
             .then(res => res.json())
             .then((result) => {
-                console.log(result);
                 dispatch(getActualProfileAction);
                 // setTimeout(() => {
                 //     dispatch({
@@ -268,12 +266,12 @@ export const updateExperienceAction = (experience, data) => {
     };
 };
 
-export const uploadImageExperienceAction = (expID, data) => {
+export const uploadImageExperienceAction = (expID, formData) => {
     return (dispatch, getState) => {
         const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences/${expID}/picture`, {
             method: "POST",
-            body: data,
+            body: formData,
             headers: {
                 Authorization: `Bearer ${keyGiovanni}`,
             },
@@ -405,10 +403,9 @@ export const createPostAction = (data, formData) => {
         })
             .then(res => res.json())
             .then((result) => {
-                console.log(result);
                 if (formData) {
                     console.log("sono dento la action di creazione post");
-                    // dispatch(uploadImagePostAction(result._id,formData));
+                    dispatch(uploadImagePostAction(result._id, formData));
                 }
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
@@ -435,18 +432,22 @@ export const updatePostAction = (postID, data) => {
     };
 };
 
-export const uploadImagePostAction = (postID, data) => {
+export const uploadImagePostAction = (postID, formData) => {
     return (dispatch, getState) => {
         fetch(`${endpointApi}/posts/${postID}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${keyGiovanni}`,
             },
-            body: data
+            body: formData
         })
             .then(res => res.json())
             .then((result) => {
                 console.log(result);
+                if (formData) {
+                    console.log("sono dento la action di creazione post");
+                    // dispatch(uploadImagePostAction(result._id,formData));
+                }
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));
@@ -455,7 +456,6 @@ export const uploadImagePostAction = (postID, data) => {
 
 export const deletePostAction = (postID) => {
     return (dispatch, getState) => {
-        // const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/posts/${postID}`, {
             method: "DELETE",
             headers: {

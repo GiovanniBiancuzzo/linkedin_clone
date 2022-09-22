@@ -61,7 +61,10 @@ const MyCustomProfile = () => {
                     <Modal.Title>Modifica profilo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <FormUpdateProfile profile={profile} />
+                    <FormUpdateProfile
+                        profile={profile}
+                        showModal={showModal}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={showModal}>
