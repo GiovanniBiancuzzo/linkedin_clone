@@ -6,6 +6,8 @@ import {
     updateExperienceAction,
 } from "../redux/actions";
 import ExperienceForm from "./ExperienceForm";
+import { format } from "date-fns";
+import { HiOutlinePencil } from "react-icons/hi";
 
 const SingleExperience = ({ experience }) => {
     const [show, setShow] = useState(false);
@@ -22,38 +24,52 @@ const SingleExperience = ({ experience }) => {
     return (
         <>
             <Modal centered show={show} onHide={showModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modifica esperienza</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <ExperienceForm
-                        update={updateExperienceAction}
-                        experience={experience}
-                    />
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={showModal}>
-                        Close
-                    </Button>
-                    <Button variant="danger" onClick={handleDelete}>
-                        Elimina
-                    </Button>
-                </Modal.Footer>
+                <div className="modalElement">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modifica esperienza</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <ExperienceForm
+                            update={updateExperienceAction}
+                            experience={experience}
+                        />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={showModal}>
+                            Close
+                        </Button>
+                        <Button variant="danger" onClick={handleDelete}>
+                            Elimina
+                        </Button>
+                    </Modal.Footer>
+                </div>
             </Modal>
 
-            <Card>
-                <Card.Header as="h5">{experience.company}</Card.Header>
-                <Card.Body>
-                    <Card.Title>
-                        Ruolo: {experience.role}, dal{" "}
-                        <Badge variant="primary">{experience.startDate}</Badge>
-                    </Card.Title>
-                    <Card.Text>{experience.description}</Card.Text>
-                    <Button variant="primary" onClick={showModal}>
-                        Modifica
-                    </Button>
-                </Card.Body>
-            </Card>
+            <div id="experience-container">
+                <h4>
+                    {experience.company}{" "}
+                    <HiOutlinePencil style={{ textAlign: "end" }} />
+                </h4>
+                <div>Role: {experience.role}</div>
+                {experience.endDate ? (
+                    <div>
+                        Duration: from{" "}
+                        {format(new Date(experience.endDate), "PP")} to{" "}
+                        {format(new Date(experience.startDate), "PP")}
+                    </div>
+                ) : (
+                    <div>
+                        Start date:{" "}
+                        {format(new Date(experience.startDate), "PP")}
+                    </div>
+                )}
+                <div>Area: {experience.area}</div>
+                <p>Description: {experience.description}</p>
+
+                <Button variant="primary" onClick={showModal}>
+                    Modifica
+                </Button>
+            </div>
         </>
     );
 };

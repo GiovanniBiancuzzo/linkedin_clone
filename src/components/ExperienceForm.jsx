@@ -83,7 +83,7 @@ const ExperienceForm = (props) => {
                             />
                         </Form.Group>
 
-                        <Form.Row>
+                        <Form.Row className="justify-content-space-around">
                             <Form.Group>
                                 <Form.Label>Start Date</Form.Label>
                                 <Form.Control
