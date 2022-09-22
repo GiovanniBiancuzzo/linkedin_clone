@@ -51,7 +51,7 @@ const FormPostComponent = () => {
             </div>
 
             <Modal centered show={show} onHide={showModal}>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton >
                     <Modal.Title>Crea un post</Modal.Title>
                 </Modal.Header>{" "}
                 <Form onSubmit={handleCreate}>
