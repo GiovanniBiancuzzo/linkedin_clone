@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form, Image, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { createPostAction } from "../redux/actions";
+import { createPostAction, uploadImagePostAction } from "../redux/actions";
 
 const FormPostComponent = () => {
     const [data, setData] = useState({
@@ -11,10 +11,13 @@ const FormPostComponent = () => {
     const [show, setShow] = useState(false);
     const showModal = () => setShow(!show);
 
+    const [dataImage, setDataImage] = useState(null);
+    const formData = new FormData();
+
     const handleCreate = (e) => {
         e.preventDefault();
-        console.log("update post");
-        dispatch(createPostAction(data));
+        console.log("create post");
+        dispatch(createPostAction(data, formData));
         setData({
             text: "",
         });
@@ -46,22 +49,43 @@ const FormPostComponent = () => {
                 </Modal.Header>{" "}
                 <Form onSubmit={handleCreate}>
                     <Modal.Body>
-                        <Form.Control
-                            type="text"
-                            as="textarea"
-                            rows={2}
-                            placeholder="Di che cosa vorresti parlare?"
-                            value={data.text}
-                            onChange={(e) => {
-                                setData({
-                                    ...data,
-                                    text: e.target.value,
-                                });
-                            }}
-                            onClick={showModal}
-                        />
+                        <Form.Group>
+                            <div className=" m-2">
+                                <Form.Label>Logo esperienza</Form.Label>
+                                <Image src={data.image} width={"30px"}></Image>
+                            </div>
+                            <Form.Control
+                                type="file"
+                                placeholder="Upload your image"
+                                // accept="image"
+                                onChange={(e) => {
+                                    console.log("onchange di upload");
+                                    setDataImage(e.target.files[0]);
+                                    formData.append("post", {
+                                        dataImage,
+                                    });
+                                }}
+                            />
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Form.Control
+                                type="text"
+                                as="textarea"
+                                rows={2}
+                                placeholder="Di che cosa vorresti parlare?"
+                                value={data.text}
+                                onChange={(e) => {
+                                    setData({
+                                        ...data,
+                                        text: e.target.value,
+                                    });
+                                }}
+                                onClick={showModal}
+                            />
+                        </Form.Group>
+                        <a href="#">Aggiungi hashtag</a>
                     </Modal.Body>
-                    <a href="#">Aggiungi hashtag</a>
                     <Modal.Footer>
                         <Button variant="primary" type="submit">
                             Pubblica

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Badge, Button, Card, Modal } from "react-bootstrap";
+import { Badge, Button, Card, Col, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import {
     deleteExperienceAction,
@@ -44,33 +44,42 @@ const SingleExperience = ({ experience }) => {
             </Modal>
 
             <div id="experience-container">
-                <div className="d-flex justify-content-between">
-                    <h4>{experience.company} </h4>
-                    <Button
-                        onClick={showModal}
-                        style={{
-                            backgroundColor: "transparent",
-                            border: "none",
-                        }}
-                    >
-                        <HiOutlinePencil style={{ textAlign: "end" }} />
-                    </Button>
-                </div>
-                <div>Role: {experience.role}</div>
-                {experience.endDate ? (
-                    <div>
-                        Duration: from{" "}
-                        {format(new Date(experience.endDate), "PP")} to{" "}
-                        {format(new Date(experience.startDate), "PP")}
-                    </div>
-                ) : (
-                    <div>
-                        Start date:{" "}
-                        {format(new Date(experience.startDate), "PP")}
-                    </div>
-                )}
-                <div>Area: {experience.area}</div>
-                <p>Description: {experience.description}</p>
+                <Row>
+                    <Col xs={6}>
+                        <div className="d-flex justify-content-between">
+                            <h4>{experience.company} </h4>
+                        </div>
+                        <div>Role: {experience.role}</div>
+                        {experience.endDate ? (
+                            <div>
+                                Duration: from{" "}
+                                {format(new Date(experience.endDate), "PP")} to{" "}
+                                {format(new Date(experience.startDate), "PP")}
+                            </div>
+                        ) : (
+                            <div>
+                                Start date:{" "}
+                                {format(new Date(experience.startDate), "PP")}
+                            </div>
+                        )}
+                        <div>Area: {experience.area}</div>
+                        <p>Description: {experience.description}</p>
+                    </Col>
+                    <Col xs={5}>
+                        <Image src={experience.image} width={"20px"}></Image>
+                    </Col>
+                    <Col xs={1}>
+                        <Button
+                            onClick={showModal}
+                            style={{
+                                backgroundColor: "transparent",
+                                border: "none",
+                            }}
+                        >
+                            <HiOutlinePencil style={{ textAlign: "end" }} />
+                        </Button>{" "}
+                    </Col>
+                </Row>
             </div>
         </>
     );

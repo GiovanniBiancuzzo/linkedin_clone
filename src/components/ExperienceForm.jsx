@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Col, Row, Container, Modal } from "react-bootstrap";
+import {
+    Form,
+    Button,
+    Col,
+    Row,
+    Container,
+    Modal,
+    Image,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
     createExperienceAction,
     updateExperienceAction,
+    uploadImageExperienceAction,
 } from "../redux/actions";
 
 const ExperienceForm = (props) => {
@@ -16,43 +25,58 @@ const ExperienceForm = (props) => {
         role: "", //  actualProfile.role,
         startDate: "", //      actualProfile.startDate,
         endDate: "", //      actualProfile.endDate,
+        image: "",
     });
+
+    const [dataImage, setDataImage] = useState(null);
+    const formData = new FormData();
 
     const dispatch = useDispatch();
 
     const handleCRUD = (e) => {
         e.preventDefault();
+        if (dataImage !== null) {
+            console.log("sono dento il formdata");
+            dispatch(
+                uploadImageExperienceAction(props.experience._id, formData)
+            );
+        }
         if (props.create) {
             console.log("create");
             dispatch(createExperienceAction(data));
-            props.showModal();
+            // props.showModal
         } else if (props.update) {
             console.log("update");
             dispatch(updateExperienceAction(props.experience, data));
-            props.showModal();
+            // props.showModal;
         }
     };
 
-    // useEffect(() => {
-    //     if (props.update) {
-    //         setData({
-    //             area: actualProfile.area,
-    //             company: actualProfile.company,
-    //             description: actualProfile.description,
-    //             role: actualProfile.role,
-    //             startDate: actualProfile.startDate,
-    //             endDate: actualProfile.endDate,
-    //         });
-    //     }
-    // }, []);
-
     return (
-        // <div>
         <Container>
             <Row>
                 {/* <Col xs={12} md={6}> */}
                 <Col>
                     <Form className="text-left" onSubmit={handleCRUD}>
+                        <Form.Group>
+                            <div className=" m-2">
+                                <Form.Label>Logo esperienza</Form.Label>
+                                <Image src={data.image} width={"30px"}></Image>
+                            </div>
+                            <Form.Control
+                                type="file"
+                                placeholder="Upload your image"
+                                // accept="image"
+                                onChange={(e) => {
+                                    console.log("onchange di upload");
+                                    setDataImage(e.target.files[0]);
+                                    formData.append("experience", {
+                                        dataImage,
+                                    });
+                                }}
+                            />
+                        </Form.Group>
+
                         <Form.Group>
                             <Form.Label>Company</Form.Label>
                             <Form.Control
@@ -153,20 +177,6 @@ const ExperienceForm = (props) => {
                 </Col>
             </Row>
         </Container>
-
-        //     <Modal>
-        //        <Modal.Header closeButton>
-        //            <Modal.Title>Modal heading</Modal.Title>
-        //        </Modal.Header>
-        //        <Modal.Body>
-        //            Woohoo, you're reading this text in a modal!
-        //        </Modal.Body>
-        //        <Modal.Footer>
-        //            <Button variant="secondary">Close</Button>
-        //            <Button variant="primary">Save Changes</Button>
-        //        </Modal.Footer>
-        //    </Modal>
-        //</div>
     );
 };
 

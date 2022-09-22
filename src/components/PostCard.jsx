@@ -4,12 +4,17 @@ import { RiShareForwardLine, RiSendPlaneFill } from "react-icons/ri";
 
 import "../styles/postCard.css";
 import { useState } from "react";
-import { Button, Dropdown, Form, Modal } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { deletePostAction, updatePostAction } from "../redux/actions";
+import { Button, Dropdown, Form, Image, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    deletePostAction,
+    updatePostAction,
+    uploadImagePostAction,
+} from "../redux/actions";
 import { format } from "date-fns";
 
 const PostCard = ({ post }) => {
+    const profiles = useSelector((state) => state.profile.profiles);
     const [data, setData] = useState({
         text: post.text,
     });
@@ -19,10 +24,16 @@ const PostCard = ({ post }) => {
     const showDeleteModal = () => setShowDelete(!showDelete);
 
     const dispatch = useDispatch();
+    const [dataImage, setDataImage] = useState(null);
+    const formData = new FormData();
 
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log("update post");
+        if (dataImage !== null) {
+            console.log("sono dento il formdata");
+            dispatch(uploadImagePostAction(post._id, formData));
+        }
         dispatch(updatePostAction(post._id, data));
         showUpdateModal();
     };
@@ -38,7 +49,18 @@ const PostCard = ({ post }) => {
         <>
             <div className="post">
                 <div className="d-flex justify-content-between post-body">
-                    <p>{post.username}</p>
+                    <div>
+                        <Image
+                            src={
+                                profiles.filter(
+                                    (profile) =>
+                                        profile.username === post.username
+                                ).image
+                            }
+                            width={"10px"}
+                        ></Image>{" "}
+                        <p>{post.username}</p>
+                    </div>
                     <Dropdown alignRight>
                         <Dropdown.Toggle
                             variant="secondary"
@@ -93,8 +115,26 @@ const PostCard = ({ post }) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleUpdate}>
+                        <Form.Label>Post da modificare</Form.Label>
                         <Form.Group>
-                            <Form.Label>Post da modificare</Form.Label>
+                            <div className=" m-2">
+                                <Image src={data.image} width={"30px"}></Image>
+                            </div>
+                            <Form.Control
+                                type="file"
+                                placeholder="Upload your image"
+                                // accept="image"
+                                onChange={(e) => {
+                                    console.log("onchange di upload");
+                                    setDataImage(e.target.files[0]);
+                                    formData.append("post", {
+                                        dataImage,
+                                    });
+                                }}
+                            />
+                        </Form.Group>
+
+                        <Form.Group>
                             <Form.Control
                                 type="textarea"
                                 as="textarea"

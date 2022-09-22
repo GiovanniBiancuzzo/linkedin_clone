@@ -1,11 +1,13 @@
 export const GET_PROFILES = 'GET_PROFILES';
 export const GET_ACTUAL_PROFILE = 'GET_ACTUAL_PROFILE';
+export const UPLOAD_IMAGE_PROFILE = 'UPLOAD_IMAGE_PROFILE';
 export const LOADED_PROFILES = 'LOADED_PROFILES';
 export const GET_PROFILES_ERROR = 'GET_PROFILES_ERROR';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const GET_EXPERIENCES = 'GET_EXPERIENCES';
 export const GET_SINGLE_EXPERIENCE = 'GET_SINGLE_EXPERIENCE';
 export const CREATE_EXPERIENCE = 'CREATE_EXPERIENCE';
+export const UPLOAD_IMAGE_EXPERIENCE = 'UPLOAD_IMAGE_EXPERIENCE';
 export const DELETE_EXPERIENCE = 'DELETE_EXPERIENCE';
 export const LOADED_EXPERIENCES = 'LOADED_EXPERIENCES';
 export const GET_EXPERIENCES_ERROR = 'GET_EXPERIENCES_ERROR';
@@ -13,6 +15,7 @@ export const UPDATE_EXPERIENCE = 'UPDATE_EXPERIENCE';
 export const GET_POSTS = 'GET_POSTS';
 export const GET_SINGLE_POST = 'GET_SINGLE_POST';
 export const CREATE_POST = 'CREATE_POST';
+export const UPLOAD_IMAGE_POST = 'UPLOAD_IMAGE_POST';
 export const UPDATE_POST = 'UPDATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const LOADED_POSTS = 'LOADED_POSTS';
@@ -86,6 +89,38 @@ export const getActualProfileAction = (userID) => {
                 dispatch({
                     type: GET_PROFILES_ERROR,
                 });
+            });
+    };
+};
+
+export const uploadImageProfileAction = (data) => {
+    return (dispatch, getState) => {
+        const userID = getState().profile.actualProfile._id;
+        fetch(`${endpointApi}/profile/${userID}/picture`, {
+            method: "POST",
+            body: data,
+            headers: {
+                Authorization: `Bearer ${keyGiovanni}`,
+            },
+        })
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
+                dispatch(getActualProfileAction);
+                // setTimeout(() => {
+                //     dispatch({
+                //         type: LOADED_PROFILES,
+                //     });
+                // }, 200);
+            })
+            .catch(error => {
+                console.log(error);
+                // dispatch({
+                //     type: LOADED_PROFILES,
+                // });
+                // dispatch({
+                //     type: GET_PROFILES_ERROR,
+                // });
             });
     };
 };
@@ -232,6 +267,28 @@ export const updateExperienceAction = (experience, data) => {
             .catch(error => console.log(error));
     };
 };
+
+export const uploadImageExperienceAction = (expID, data) => {
+    return (dispatch, getState) => {
+        const userID = getState().profile.actualProfile._id;
+        fetch(`${endpointApi}/profile/${userID}/experiences/${expID}/picture`, {
+            method: "POST",
+            body: data,
+            headers: {
+                Authorization: `Bearer ${keyGiovanni}`,
+            },
+        })
+            .then(res => {
+                if (res.ok) {
+                    console.log('post positiva');
+                }
+                else console.log('post negativa');
+            })
+            .then((data) => console.log(data))
+            .catch(error => console.log(error));
+    };
+};
+
 export const deleteExperienceAction = (experience) => {
     return (dispatch, getState) => {
         const userID = getState().profile.actualProfile._id;
@@ -336,7 +393,7 @@ export const getSinglePostAction = (postID) => {
     };
 };
 
-export const createPostAction = (data) => {
+export const createPostAction = (data, formData) => {
     return (dispatch, getState) => {
         fetch(`${endpointApi}/posts`, {
             method: "POST",
@@ -349,6 +406,10 @@ export const createPostAction = (data) => {
             .then(res => res.json())
             .then((result) => {
                 console.log(result);
+                if (formData) {
+                    console.log("sono dento la action di creazione post");
+                    // dispatch(uploadImagePostAction(result._id,formData));
+                }
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .then((data) => console.log(data))
@@ -373,6 +434,25 @@ export const updatePostAction = (postID, data) => {
             .catch(error => console.log(error));
     };
 };
+
+export const uploadImagePostAction = (postID, data) => {
+    return (dispatch, getState) => {
+        fetch(`${endpointApi}/posts/${postID}`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${keyGiovanni}`,
+            },
+            body: data
+        })
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
+                dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
+            })
+            .catch(error => console.log(error));
+    };
+};
+
 export const deletePostAction = (postID) => {
     return (dispatch, getState) => {
         // const userID = getState().profile.actualProfile._id;

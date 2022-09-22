@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Button, Col, Form } from "react-bootstrap";
+import { Container, Row, Button, Col, Form, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { updateProfileAction } from "../redux/actions";
+import {
+    updateProfileAction,
+    uploadImageProfileAction,
+} from "../redux/actions";
 
 const FormUpdateProfile = ({ profile }) => {
     const [data, setData] = useState({
@@ -11,12 +14,21 @@ const FormUpdateProfile = ({ profile }) => {
         bio: profile.bio,
         title: profile.title,
         area: profile.area,
+        image: profile.image,
     });
+
+    const [dataImage, setDataImage] = useState(null);
+
     const dispatch = useDispatch();
+    const formData = new FormData();
 
     const handleUpdate = (e) => {
         e.preventDefault();
         console.log("update profile");
+        if (dataImage !== null) {
+            console.log("sono dento il formdata");
+            dispatch(uploadImageProfileAction(formData));
+        }
         dispatch(updateProfileAction(data));
     };
 
@@ -28,6 +40,29 @@ const FormUpdateProfile = ({ profile }) => {
                 {/* <Col xs={12} md={6}> */}
                 <Col>
                     <Form className="text-left" onSubmit={handleUpdate}>
+                        <Form.Group>
+                            <div className="text-center m-2">
+                                <Col>
+                                    <Form.Label>Immagine profilo</Form.Label>
+                                </Col>
+
+                                <Image src={data.image} width={"80px"}></Image>
+                            </div>
+                            <Form.Control
+                                type="file"
+                                placeholder="Upload your image"
+                                // accept="image"
+                                onChange={(e) => {
+                                    console.log("onchange di upload");
+                                    setDataImage(e.target.files[0]);
+                                    formData.append(
+                                        "profile",
+                                        e.target.files[0]
+                                    );
+                                }}
+                            />
+                        </Form.Group>
+
                         <Form.Group>
                             <Form.Label>Name</Form.Label>
                             <Form.Control

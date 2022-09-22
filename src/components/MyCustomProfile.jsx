@@ -28,7 +28,6 @@ const MyCustomProfile = () => {
                     {profile && (
                         <Col className="profile-section">
                             <div className="profile-details">
-                                <Image src="" alt="" />
                                 <Image
                                     id="profile-pic"
                                     src={profile.image}
