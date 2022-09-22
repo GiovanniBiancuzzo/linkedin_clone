@@ -2,6 +2,7 @@
     text-align: center;
     padding-left: 5vw;
     padding-right: 10vw;
+    background-color: #f3f2ef;
 }
 
 #link {
@@ -29,9 +30,9 @@
     height: auto;
     border: 1px solid black;
     border-radius: 15px;
-    background-color: #1d2226;
     margin: 5px 50px;
-    color: white;
+    /* background-color: #1d2226;
+    color: white; */
 }
 
 .profile-details {

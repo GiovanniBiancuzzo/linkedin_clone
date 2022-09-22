@@ -42,23 +42,21 @@ const ExperiencesComponent = () => {
                 //visualizzazione delle esperienze con spinner per il loading
             }
             <Modal centered show={show} onHide={showModal}>
-                <div className="modalElement">
-                    <Modal.Header closeButton>
-                        <Modal.Title>Crea esperienza</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <ExperienceForm
-                            create={createExperienceAction}
-                            showModal={showModal}
-                        />
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={showModal}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
-                </div>
-            </Modal>{" "}
+                <Modal.Header closeButton>
+                    <Modal.Title>Crea esperienza</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ExperienceForm
+                        create={createExperienceAction}
+                        showModal={showModal}
+                    />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={showModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             {
                 //modale per la creazione delle esperienze
             }

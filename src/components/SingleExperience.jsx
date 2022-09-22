@@ -24,25 +24,23 @@ const SingleExperience = ({ experience }) => {
     return (
         <>
             <Modal centered show={show} onHide={showModal}>
-                <div className="modalElement">
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modifica esperienza</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <ExperienceForm
-                            update={updateExperienceAction}
-                            experience={experience}
-                        />
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={showModal}>
-                            Close
-                        </Button>
-                        <Button variant="danger" onClick={handleDelete}>
-                            Elimina
-                        </Button>
-                    </Modal.Footer>
-                </div>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modifica esperienza</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ExperienceForm
+                        update={updateExperienceAction}
+                        experience={experience}
+                    />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={showModal}>
+                        Close
+                    </Button>
+                    <Button variant="danger" onClick={handleDelete}>
+                        Elimina
+                    </Button>
+                </Modal.Footer>
             </Modal>
 
             <div id="experience-container">
