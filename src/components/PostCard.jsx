@@ -53,11 +53,25 @@ const PostCard = ({ post }) => {
                             {/* <BiDotsVerticalRounded />{" "} */}
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item onClick={showUpdateModal}>
+                        <Dropdown.Menu
+                            style={{
+                                backgroundColor: "#1d2226",
+                            }}
+                        >
+                            <Dropdown.Item
+                                onClick={showUpdateModal}
+                                style={{
+                                    color: "white",
+                                }}
+                            >
                                 Modifica
                             </Dropdown.Item>
-                            <Dropdown.Item onClick={showDeleteModal}>
+                            <Dropdown.Item
+                                onClick={showDeleteModal}
+                                style={{
+                                    color: "white",
+                                }}
+                            >
                                 Elimina
                             </Dropdown.Item>
                         </Dropdown.Menu>
@@ -94,58 +108,62 @@ const PostCard = ({ post }) => {
             </div>
 
             <Modal centered show={showUpdate} onHide={showUpdateModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modifica post</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handleUpdate}>
-                        <Form.Group>
-                            <Form.Label>Post da modificare</Form.Label>
-                            <Form.Control
-                                type="textarea"
-                                as="textarea"
-                                rows={4}
-                                placeholder="Edit your post"
-                                value={data.text}
-                                onChange={(e) => {
-                                    setData({
-                                        ...data,
-                                        text: e.target.value,
-                                    });
-                                }}
-                            />
-                        </Form.Group>
-                        <Button variant="success" type="submit">
-                            Conferma modifica
+                <div className="modalElement">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modifica post</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form onSubmit={handleUpdate}>
+                            <Form.Group>
+                                <Form.Label>Post da modificare</Form.Label>
+                                <Form.Control
+                                    type="textarea"
+                                    as="textarea"
+                                    rows={4}
+                                    placeholder="Edit your post"
+                                    value={data.text}
+                                    onChange={(e) => {
+                                        setData({
+                                            ...data,
+                                            text: e.target.value,
+                                        });
+                                    }}
+                                />
+                            </Form.Group>
+                            <Button variant="success" type="submit">
+                                Conferma modifica
+                            </Button>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={showUpdateModal}>
+                            Close
                         </Button>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={showUpdateModal}>
-                        Close
-                    </Button>
-                </Modal.Footer>
+                    </Modal.Footer>
+                </div>
             </Modal>
 
             <Modal centered show={showDelete} onHide={showDeleteModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Elimina post</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Sei sicuro di voler eliminare questo post?</p>
-                    <Button
-                        variant="danger"
-                        type="button"
-                        onClick={handleDelete}
-                    >
-                        Conferma modifica
-                    </Button>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={showDeleteModal}>
-                        Close
-                    </Button>
-                </Modal.Footer>
+                <div className="modalElement">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Elimina post</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Sei sicuro di voler eliminare questo post?</p>
+                        <Button
+                            variant="danger"
+                            type="button"
+                            onClick={handleDelete}
+                        >
+                            Conferma modifica
+                        </Button>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={showDeleteModal}>
+                            Close
+                        </Button>{" "}
+                    </Modal.Footer>
+                </div>
             </Modal>
         </>
     );

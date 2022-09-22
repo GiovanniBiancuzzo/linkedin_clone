@@ -7,7 +7,8 @@ import PostCard from "./PostCard";
 
 const PostsComponent = () => {
     const posts = useSelector((state) => state.post.posts);
-    const errorPosts = useSelector((state) => state.post.loading);
+    const loadedPosts = useSelector((state) => state.post.loading);
+    const errorPosts = useSelector((state) => state.post.error);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,8 +21,11 @@ const PostsComponent = () => {
         <Col sm={6}>
             <div>
                 <FormPostComponent />
-                {errorPosts ? (
-                    posts && (
+                {
+                    //form per la creazione dei post
+                }
+                {!loadedPosts ? (
+                    !errorPosts && (
                         <Col>
                             {posts.map((post) => (
                                 <PostCard key={post._id} post={post} />
@@ -35,6 +39,9 @@ const PostsComponent = () => {
                         style={{ width: "60px", height: "60px" }}
                     />
                 )}
+                {
+                    //visualizzazione dei post con spinner per il loading
+                }
             </div>
         </Col>
     );

@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { createExperienceAction, getExperiencesAction } from "../redux/actions";
 import ExperienceForm from "./ExperienceForm";
 import MyExperiences from "./MyExperiences";
-import SingleExperience from "./SingleExperience";
 
 const ExperiencesComponent = () => {
     const experiences = useSelector((state) => state.experience.experiences); // recupero delle experiences dallo store
+    const loadedExperiences = useSelector((state) => state.experience.loading);
     const errorExperiences = useSelector((state) => state.experience.error);
     const userID = "6328189d6d79a500150902e7"; //mio id
     const userIDPierdomenico = "5fc4da7fed266800170ea3e5"; //o qualunque id
@@ -25,10 +25,11 @@ const ExperiencesComponent = () => {
     return (
         <>
             <Button onClick={showModal}>Aggiungi esperienza</Button>
-
             <Col>
-                {!errorExperiences ? (
-                    experiences && <MyExperiences experiences={experiences} />
+                {!loadedExperiences ? (
+                    !errorExperiences && (
+                        <MyExperiences experiences={experiences} />
+                    )
                 ) : (
                     <Spinner
                         animation="grow"
@@ -37,7 +38,9 @@ const ExperiencesComponent = () => {
                     />
                 )}
             </Col>
-
+            {
+                //visualizzazione delle esperienze con spinner per il loading
+            }
             <Modal centered show={show} onHide={showModal}>
                 <div className="modalElement">
                     <Modal.Header closeButton>
@@ -55,7 +58,10 @@ const ExperiencesComponent = () => {
                         </Button>
                     </Modal.Footer>
                 </div>
-            </Modal>
+            </Modal>{" "}
+            {
+                //modale per la creazione delle esperienze
+            }
         </>
     );
 };
