@@ -26,7 +26,9 @@ const ExperiencesComponent = () => {
     return (
         <>
             <Row className="justify-content-around my-3">
-                <Button onClick={showModal} className = "experience-button">Aggiungi esperienza</Button>
+                <Button onClick={showModal} className="experience-button">
+                    Aggiungi esperienza
+                </Button>
             </Row>
             <Row>
                 <Col>

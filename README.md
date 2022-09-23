@@ -13,7 +13,7 @@ Utilizzo di
 
 -   react-router-dom, semplici routes per testare funzionalità
 -   redux con actions per recuperare e storare tutti i profili e ricerca del mio profilo
--   redux persist
+-   redux persist e encryption
 -   bootstrap 4.6.1
 
 Funzionalità
@@ -28,3 +28,4 @@ Funzionalità
 -   not found page
 -   routing
 -   abbastanza responsive
+-   stickyness

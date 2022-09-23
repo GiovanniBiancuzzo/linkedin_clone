@@ -14,7 +14,7 @@ const PostsComponent = () => {
     useEffect(() => {
         dispatch(getPostsAction());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [posts]);
+    }, []);
 
     return (
         <Col sm={12} md={9} lg={6}>
