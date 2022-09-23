@@ -414,7 +414,7 @@ export const createPostAction = (data, formData) => {
     };
 };
 
-export const updatePostAction = (postID, data, formData) => {
+export const updatePostAction = (postID, data) => {
     return (dispatch, getState) => {
         fetch(`${endpointApi}/posts/${postID}`, {
             method: "PUT",
@@ -426,10 +426,6 @@ export const updatePostAction = (postID, data, formData) => {
         })
             .then(res => res.json())
             .then((result) => {
-                if (formData) {
-                    console.log("sono dento la action di creazione post");
-                    dispatch(uploadImagePostAction(result._id, formData));
-                }
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));

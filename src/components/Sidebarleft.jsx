@@ -29,7 +29,12 @@ const Sidebarleft = () => {
 
                         <h5>
                             <b>
-                                <Link to="/profile" style={{ color: "white" }}>
+                                <Link
+                                    to="/profile"
+                                    style={{
+                                        color: "#212529",
+                                    }}
+                                >
                                     {profile.name} {profile.surname}
                                 </Link>
                             </b>

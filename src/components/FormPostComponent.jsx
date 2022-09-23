@@ -15,7 +15,6 @@ const FormPostComponent = () => {
 
     const handleCreate = (e) => {
         e.preventDefault();
-        console.log("create post");
         const formData = new FormData();
         formData.append("post", dataImage);
         dispatch(createPostAction(data, formData));
