@@ -19,7 +19,7 @@ function App () {
             <Routes>
               <Route path='/' element={<HomeComponent />} />
               <Route path='/profile' element={<MyCustomProfile />} />
-              <Route path='*' element={<NotFoundComponent />} />
+              <Route path='*' element={<HomeComponent />} />
             </Routes>
             <Col lg={3}><SidebarRight /></Col>
           </Row>
