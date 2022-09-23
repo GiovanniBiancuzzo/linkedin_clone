@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
 
     return (
         <>
-            <div className="post container">
+            <div className="post">
                 <Row>
                     <Col xs={2}>
                         <Image

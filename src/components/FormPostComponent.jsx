@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, Image, Modal } from "react-bootstrap";
+import { Button, Col, Form, Image, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { createPostAction, uploadImagePostAction } from "../redux/actions";
 
@@ -32,7 +32,7 @@ const FormPostComponent = () => {
 
     return (
         <>
-            <div className="feed">
+            <Col className="feed">
                 <div className="feed-inputContainer">
                     <div className="feed-input">
                         <Button
@@ -48,7 +48,7 @@ const FormPostComponent = () => {
                         </Button>
                     </div>
                 </div>
-            </div>
+            </Col>
 
             <Modal centered show={show} onHide={showModal}>
                 <Modal.Header closeButton>

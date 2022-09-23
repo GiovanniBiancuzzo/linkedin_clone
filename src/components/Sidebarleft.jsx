@@ -5,6 +5,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import { Button, Col, Image } from "react-bootstrap";
 import { AiFillSketchSquare } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Sidebarleft = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
@@ -27,7 +28,9 @@ const Sidebarleft = () => {
 
                     <h5>
                         <b>
-                            {profile.name} {profile.surname}
+                            <Link to="/profile" style={{ color: "white" }}>
+                                {profile.name} {profile.surname}
+                            </Link>
                         </b>
                     </h5>
                     <h6>{profile.title}</h6>
