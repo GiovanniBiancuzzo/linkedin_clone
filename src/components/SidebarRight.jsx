@@ -13,7 +13,7 @@ function SidebarRight() {
             <Card
                 style={{
                     width: "20rem",
-                    height: "23rem",
+                    height: "28rem",
                 }}
                 className="notiziecard0"
             >
