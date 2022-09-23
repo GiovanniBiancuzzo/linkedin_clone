@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useSelector } from "react-redux";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { MdPersonAddAlt1 } from "react-icons/md";
-import { Button, Col, Image } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 import { AiFillSketchSquare } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -26,46 +26,48 @@ const Sidebarleft = () => {
                         width={"68px"}
                     />
 
-                    <h5>
-                        <b>
-                            <Link to="/profile" style={{ color: "white" }}>
-                                {profile.name} {profile.surname}
-                            </Link>
-                        </b>
-                    </h5>
-                    <h6>{profile.title}</h6>
-                </Card.Header>
+                        <h5>
+                            <b>
+                                <Link to="/profile" style={{ color: "white" }}>
+                                    {profile.name} {profile.surname}
+                                </Link>
+                            </b>
+                        </h5>
+                        <h6>{profile.title}</h6>
+                    </Card.Header>
 
-                <ListGroup variant="flush" className="listgroup">
-                    <ListGroup.Item id="list__group">
-                        <p>Collegamenti</p>
-                        <p>
-                            <b>Espandi la tua rete</b> <MdPersonAddAlt1 />
-                        </p>
-                    </ListGroup.Item>
+                    <ListGroup variant="flush" className="listgroup">
+                        <ListGroup.Item id="list__group">
+                            <p>Collegamenti</p>
+                            <p>
+                                <b>Espandi la tua rete</b> <MdPersonAddAlt1 />
+                            </p>
+                        </ListGroup.Item>
 
-                    <ListGroup.Item id="list__group" className="listgroup2">
-                        <p>Accedi a strumenti e informazioni in esclusiva</p>
-                        <p>
-                            <Button variant="link" className="link-p">
-                                <AiFillSketchSquare
-                                    size="20"
-                                    className="premiumicons"
-                                />{" "}
-                                Prova premium gratis
-                            </Button>
-                        </p>
-                    </ListGroup.Item>
+                        <ListGroup.Item id="list__group" className="listgroup2">
+                            <p>
+                                Accedi a strumenti e informazioni in esclusiva
+                            </p>
+                            <p>
+                                <Button variant="link" className="link-p">
+                                    <AiFillSketchSquare
+                                        size="20"
+                                        className="premiumicons"
+                                    />{" "}
+                                    Prova premium gratis
+                                </Button>
+                            </p>
+                        </ListGroup.Item>
 
-                    <ListGroup.Item id="list__group">
-                        <p>
-                            {" "}
-                            <BsFillBookmarkFill className="iconsbook" />{" "}
-                            <b>I miei elementi</b>
-                        </p>
-                    </ListGroup.Item>
-                </ListGroup>
-            </Card>
+                        <ListGroup.Item id="list__group">
+                            <p>
+                                {" "}
+                                <BsFillBookmarkFill className="iconsbook" />{" "}
+                                <b>I miei elementi</b>
+                            </p>
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>
 
             <Card style={{ width: "15rem", position: "sticky" , top: 0 }} className="Cardside2">
                 <Button variant="link" className="link-c">

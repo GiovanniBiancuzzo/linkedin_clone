@@ -18,7 +18,7 @@ const PostsComponent = () => {
     }, []);
 
     return (
-        <Col sm={6}>
+        <Col sm={12} md={9} lg={6}>
             <div>
                 <FormPostComponent />
                 {

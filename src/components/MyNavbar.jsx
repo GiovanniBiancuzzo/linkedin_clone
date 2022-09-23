@@ -46,7 +46,7 @@ function MyNavbar() {
                                     to="/"
                                     className="ms-3 mt-1"
                                 >
-                                    <FaHome id="icona" size={22} /> <p>home</p>
+                                    <FaHome id="icona" size={22} /> <p>Home</p>
                                 </Link>
                                 <Link
                                     href="#pricing"
