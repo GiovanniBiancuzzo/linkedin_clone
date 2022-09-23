@@ -43,44 +43,42 @@ const SingleExperience = ({ experience }) => {
                 </Modal.Footer>
             </Modal>
 
-            <div id="experience-container">
-                <Row>
-                    <Col xs={6}>
-                        <div className="d-flex justify-content-between">
-                            <h4>{experience.company} </h4>
+            <Row id="experience-container">
+                <Col xs={6}>
+                    <div className="d-flex justify-content-between">
+                        <h4>{experience.company} </h4>
+                    </div>
+                    <div>Role: {experience.role}</div>
+                    {experience.endDate ? (
+                        <div>
+                            Duration: from{" "}
+                            {format(new Date(experience.endDate), "PP")} to{" "}
+                            {format(new Date(experience.startDate), "PP")}
                         </div>
-                        <div>Role: {experience.role}</div>
-                        {experience.endDate ? (
-                            <div>
-                                Duration: from{" "}
-                                {format(new Date(experience.endDate), "PP")} to{" "}
-                                {format(new Date(experience.startDate), "PP")}
-                            </div>
-                        ) : (
-                            <div>
-                                Start date:{" "}
-                                {format(new Date(experience.startDate), "PP")}
-                            </div>
-                        )}
-                        <div>Area: {experience.area}</div>
-                        <p>Description: {experience.description}</p>
-                    </Col>
-                    <Col xs={5}>
-                        <Image src={experience.image} width={"20px"}></Image>
-                    </Col>
-                    <Col xs={1}>
-                        <Button
-                            onClick={showModal}
-                            style={{
-                                backgroundColor: "transparent",
-                                border: "none",
-                            }}
-                        >
-                            <HiOutlinePencil style={{ textAlign: "end" }} />
-                        </Button>{" "}
-                    </Col>
-                </Row>
-            </div>
+                    ) : (
+                        <div>
+                            Start date:{" "}
+                            {format(new Date(experience.startDate), "PP")}
+                        </div>
+                    )}
+                    <div>Area: {experience.area}</div>
+                    <p>Description: {experience.description}</p>
+                </Col>
+                <Col xs={5}>
+                    <Image src={experience.image} width={"20px"}></Image>
+                </Col>
+                <Col xs={1}>
+                    <Button
+                        onClick={showModal}
+                        style={{
+                            backgroundColor: "transparent",
+                            border: "none",
+                        }}
+                    >
+                        <HiOutlinePencil style={{ textAlign: "end" }} />
+                    </Button>{" "}
+                </Col>
+            </Row>
         </>
     );
 };

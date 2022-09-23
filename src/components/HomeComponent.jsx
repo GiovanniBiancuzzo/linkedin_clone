@@ -7,8 +7,6 @@ import PostsComponent from "./PostsComponent";
 import Sidebarleft from "./Sidebarleft";
 import SidebarRight from "./SidebarRight";
 
-
-
 const HomeComponent = () => {
     const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
     // aggiungete anche il vostro id cosi vedete il vostro profilo
@@ -25,11 +23,8 @@ const HomeComponent = () => {
 
     return (
         <>
-            <Row className="homeRow">
-                <Sidebarleft />
-                <PostsComponent />
-                <SidebarRight />
-            </Row>
+            <Sidebarleft />
+            <PostsComponent />
         </>
     );
 };

@@ -25,25 +25,29 @@ const ExperiencesComponent = () => {
 
     return (
         <>
-            <Button onClick={showModal}>Aggiungi esperienza</Button>
-            <Col>
-                {!loadedExperiences ? (
-                    !errorExperiences &&
-                    experiences.map((experience) => (
-                        <SingleExperience
-                            key={experience._id}
-                            userID={experience.user}
-                            experience={experience}
+            <Row className="justify-content-around my-3">
+                <Button onClick={showModal}>Aggiungi esperienza</Button>
+            </Row>
+            <Row>
+                <Col>
+                    {!loadedExperiences ? (
+                        !errorExperiences &&
+                        experiences.map((experience) => (
+                            <SingleExperience
+                                key={experience._id}
+                                userID={experience.user}
+                                experience={experience}
+                            />
+                        ))
+                    ) : (
+                        <Spinner
+                            animation="grow"
+                            variant="primary"
+                            style={{ width: "60px", height: "60px" }}
                         />
-                    ))
-                ) : (
-                    <Spinner
-                        animation="grow"
-                        variant="primary"
-                        style={{ width: "60px", height: "60px" }}
-                    />
-                )}
-            </Col>
+                    )}
+                </Col>
+            </Row>
             {
                 //visualizzazione delle esperienze con spinner per il loading
             }
