@@ -27,3 +27,4 @@ Funzionalità
 -   sidebar
 -   not found page
 -   routing
+-   abbastanza responsive
