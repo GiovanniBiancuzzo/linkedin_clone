@@ -16,8 +16,14 @@ function MyNavbar() {
     const navigate = useNavigate();
 
     return (
-        <Col>
-            <Navbar collapseOnSelect bg="#fff" className="navbar" >
+        <Col
+            style={{
+                position: "sticky",
+                top: "0px",
+                zIndex: "99",
+            }}
+        >
+            <Navbar collapseOnSelect bg="#fff" className="navbar">
                 <Link to="/">
                     <Navbar.Brand xs={5}>
                         <img

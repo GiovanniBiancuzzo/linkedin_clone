@@ -11,20 +11,26 @@ const Sidebarleft = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
 
     return (
-        <Col sm={3}>
-            <Card style={{ width: "15rem",position: "sticky" , top: "125px" }} className="Cardside">
-                <Card.Header className="cardheader">
-                    <img
-                        src="https://i.pinimg.com/736x/9d/64/ea/9d64eabe1a8e84fd246ade05b727ed6f.jpg"
-                        alt=""
-                        className="imgsideprofile"
-                    />
-                    <Image
-                        className="imgsidebar"
-                        src={profile.image}
-                        roundedCircle
-                        width={"68px"}
-                    />
+        <Col md={3} lg={3}>
+            <Row
+                style={{
+                    position: "sticky",
+                    top: "125px",
+                }}
+            >
+                <Card style={{ width: "15rem" }} className="Cardside">
+                    <Card.Header className="cardheader">
+                        <img
+                            src="https://i.pinimg.com/736x/9d/64/ea/9d64eabe1a8e84fd246ade05b727ed6f.jpg"
+                            alt=""
+                            className="imgsideprofile"
+                        />
+                        <Image
+                            className="imgsidebar"
+                            src={profile.image}
+                            roundedCircle
+                            width={"68px"}
+                        />
 
                         <h5>
                             <b>
@@ -69,21 +75,22 @@ const Sidebarleft = () => {
                     </ListGroup>
                 </Card>
 
-            <Card style={{ width: "15rem", position: "sticky" , top: 0 }} className="Cardside2">
-                <Button variant="link" className="link-c">
-                    <b>Gruppi</b>
-                </Button>
-                <Button variant="link" className="link-c">
-                    <b>Eventi</b>
-                </Button>
-                <Button variant="link" className="link-c">
-                    <b>Hashtag seguiti</b>
-                </Button>
-                <hr />
-                <Button variant="link" className="link-d">
-                    <b>Scopri di più</b>
-                </Button>
-            </Card>
+                <Card style={{ width: "15rem" }} className="Cardside2">
+                    <Button variant="link" className="link-c">
+                        <b>Gruppi</b>
+                    </Button>
+                    <Button variant="link" className="link-c">
+                        <b>Eventi</b>
+                    </Button>
+                    <Button variant="link" className="link-c">
+                        <b>Hashtag seguiti</b>
+                    </Button>
+                    <hr />
+                    <Button variant="link" className="link-d">
+                        <b>Scopri di più</b>
+                    </Button>
+                </Card>
+            </Row>
         </Col>
     );
 };
