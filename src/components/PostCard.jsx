@@ -39,9 +39,7 @@ const PostCard = ({ post }) => {
         console.log("update post");
         if (dataImage !== null) {
             const formData = new FormData();
-            formData.append("post", {
-                dataImage,
-            });
+            formData.append("post", dataImage);
             dispatch(uploadImagePostAction(post._id, formData));
         } else {
             dispatch(updatePostAction(post._id, data));
