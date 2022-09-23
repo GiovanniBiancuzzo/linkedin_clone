@@ -17,3 +17,6 @@
 .postElements p {
     margin: 0;
 }
+.FormPost {
+    width: 45% !important;
+}

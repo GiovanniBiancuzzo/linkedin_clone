@@ -1,7 +1,5 @@
 .App {
     text-align: center;
-    padding-left: 5vw;
-    padding-right: 10vw;
     background-color: #f3f2ef;
 }
 
@@ -18,6 +16,7 @@
 .work {
     border-left: 1px solid #252525e1;
 }
+
 
 *,
 *::after,
@@ -97,12 +96,15 @@
     margin-bottom: -40px;
     width: 100%;
     height: 70px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
 }
 
 .cardheader {
-    padding: 0%;
+    padding: 0% !important;
+    background-color: white !important;
+    border-top-left-radius: 13px !important;
+    border-top-right-radius: 13px !important;
 }
 .cardheader > h6 {
     margin-bottom: 20px;
@@ -112,9 +114,10 @@
     text-align: left;
 }
 .Cardside {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 13px !important;
+    border-top-right-radius: 13px !important;
     font-size: small;
+    
 }
 .premiumicons {
     color: rgb(230, 206, 45);
@@ -128,7 +131,7 @@
 }
 
 .Cardside2 > hr {
-    margin: 0%;
+    margin: 0%; 
 }
 
 .link-c {
@@ -161,6 +164,7 @@
 .feed {
     flex: 0.6;
     margin: 0 20px;
+    width: 39vw;
 }
 
 .feed-inputContainer {
@@ -178,6 +182,49 @@
     padding: 10px;
     color: gray;
     padding-left: 15px;
+}
+
+.navbar {
+    background-color: white;
+    margin-bottom: 25px;
+    border:1px solid rgb(230, 230, 230);
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+    height: 5vw;
+}
+
+.homeRow {
+    padding-left: 10vw;
+    padding-right: vw;
+}
+
+.post {
+    background-color: white;
+    border:1px solid rgb(230, 230, 230) !important;
+}
+
+
+.notiziecard0{
+    text-align: left;
+    
+}
+
+.notiziah6{
+    font-size: 0.9rem ;
+    font-weight: bold;
+}
+
+.notiziecard > ul > li {
+    font-size: 10px;
+}
+
+.notiziecard > ul > li:hover{
+    background-color: rgb(243, 243, 243);
+}
+
+.cardttl{
+    display: flex;
+    justify-content: space-between;
 }
 
 /* .feed-input > form {
