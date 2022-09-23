@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="border-top p-4" fixed="bottom">
+        <footer className="border-top" fixed="bottom">
             <div className="row ml-1 pt-3 pb-1">
                 <figure className="display-flex">
                     <li-icon
