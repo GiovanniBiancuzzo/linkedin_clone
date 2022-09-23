@@ -65,7 +65,10 @@ const SingleExperience = ({ experience }) => {
                     <p>Description: {experience.description}</p>
                 </Col>
                 <Col xs={5}>
-                    <Image src={experience.image} width={"20px"}></Image>
+                    <Image
+                        src={experience.image}
+                        style={{ maxWidth: "100%" }}
+                    ></Image>
                 </Col>
                 <Col xs={1}>
                     <Button

@@ -36,7 +36,6 @@ const PostCard = ({ post }) => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        console.log("update post");
         if (dataImage !== null) {
             const formData = new FormData();
             formData.append("post", dataImage);

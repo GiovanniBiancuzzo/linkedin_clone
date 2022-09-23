@@ -224,7 +224,7 @@ export const getSingleExperienceAction = (expID) => {
     };
 };
 
-export const createExperienceAction = (data) => {
+export const createExperienceAction = (data, formData) => {
     return (dispatch, getState) => {
         const userID = getState().profile.actualProfile._id;
         fetch(`${endpointApi}/profile/${userID}/experiences`, {
@@ -235,11 +235,12 @@ export const createExperienceAction = (data) => {
                 Authorization: `Bearer ${keyGiovanni}`,
             },
         })
-            .then(res => {
-                if (res.ok) {
-                    console.log('post positiva');
+            .then(res => res.json())
+            .then((result) => {
+                if (formData) {
+                    dispatch(uploadImageExperienceAction(result._id, formData));
                 }
-                else console.log('post negativa');
+                dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .then((data) => console.log(data))
             .catch(error => console.log(error));
@@ -258,8 +259,7 @@ export const updateExperienceAction = (experience, data) => {
             body: JSON.stringify(data),
         })
             .then(res => res.json())
-            .then((data) => {
-                console.log(data);
+            .then(() => {
                 dispatch(getExperiencesAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));
@@ -276,13 +276,10 @@ export const uploadImageExperienceAction = (expID, formData) => {
                 Authorization: `Bearer ${keyGiovanni}`,
             },
         })
-            .then(res => {
-                if (res.ok) {
-                    console.log('post positiva');
-                }
-                else console.log('post negativa');
+            .then(res => res.json())
+            .then(() => {
+                dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
-            .then((data) => console.log(data))
             .catch(error => console.log(error));
     };
 };
@@ -425,7 +422,7 @@ export const updatePostAction = (postID, data) => {
             body: JSON.stringify(data),
         })
             .then(res => res.json())
-            .then((result) => {
+            .then(() => {
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));
@@ -442,12 +439,7 @@ export const uploadImagePostAction = (postID, formData) => {
             body: formData
         })
             .then(res => res.json())
-            .then((result) => {
-                console.log(result);
-                if (formData) {
-                    console.log("sono dento la action di creazione post");
-                    // dispatch(uploadImagePostAction(result._id,formData));
-                }
+            .then(() => {
                 dispatch(getPostsAction);//aggiorna lo store dopo le operazioni di crud
             })
             .catch(error => console.log(error));

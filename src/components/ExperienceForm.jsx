@@ -34,24 +34,19 @@ const ExperienceForm = (props) => {
 
     const handleCRUD = (e) => {
         e.preventDefault();
+
         if (dataImage !== null) {
-            console.log("sono dento il formdata");
             const formData = new FormData();
-            formData.append("experience", {
-                dataImage,
-            });
-            dispatch(
-                uploadImageExperienceAction(props.experience._id, formData)
-            );
-        }
-        if (props.create) {
-            console.log("create");
-            dispatch(createExperienceAction(data));
-            // props.showModal
-        } else if (props.update) {
-            console.log("update");
-            dispatch(updateExperienceAction(props.experience, data));
-            // props.showModal;
+            formData.append("experience", dataImage);
+            if (props.create) {
+                console.log("create");
+                dispatch(createExperienceAction(data, formData));
+                // props.showModal
+            } else if (props.update) {
+                console.log("update");
+                dispatch(updateExperienceAction(props.experience, data));
+                // props.showModal;
+            }
         }
     };
 
