@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { Row } from "react-bootstrap";
+import { CgSidebarRight } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { getActualProfileAction, getProfilesAction } from "../redux/actions";
 import PostsComponent from "./PostsComponent";
 import Sidebarleft from "./Sidebarleft";
+import SidebarRight from "./SidebarRight";
+
+
 
 const HomeComponent = () => {
     const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
@@ -21,9 +25,10 @@ const HomeComponent = () => {
 
     return (
         <>
-            <Row>
+            <Row className="homeRow">
                 <Sidebarleft />
                 <PostsComponent />
+                <SidebarRight />
             </Row>
         </>
     );

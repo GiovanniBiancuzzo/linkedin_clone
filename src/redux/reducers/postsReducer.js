@@ -43,7 +43,7 @@ const postsReducer = (state = initialState, action) => {
         case LOADED_POSTS:
             return {
                 ...state,
-                loading: !state.loading
+                loading: false
             };
         case GET_POSTS_ERROR:
             return {

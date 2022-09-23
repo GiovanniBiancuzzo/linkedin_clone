@@ -343,7 +343,7 @@ export const getPostsAction = () => {
                     dispatch({
                         type: LOADED_POSTS,
                     });
-                });
+                }, 200);
             })
             .catch(error => {
                 console.log(error);

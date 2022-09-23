@@ -19,7 +19,7 @@ import {
     updatePostAction,
     uploadImagePostAction,
 } from "../redux/actions";
-import { format } from "date-fns";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const PostCard = ({ post }) => {
     const profiles = useSelector((state) => state.profile.profiles);
@@ -57,48 +57,51 @@ const PostCard = ({ post }) => {
 
     return (
         <>
-            <div className="post">
-                <div className="d-flex justify-content-between post-body">
-                    <Row>
-                        <Col>
-                            <Image
-                                src={post.user.image}
-                                rounded
-                                width={"25px"}
-                            ></Image>
-                            <p>{post.username}</p>
-                        </Col>
-                    </Row>
-                    <Dropdown alignRight>
-                        <Dropdown.Toggle
-                            variant="secondary"
-                            id="dropdown-basic"
-                        >
-                            {/* <BiDotsVerticalRounded />{" "} */}
-                        </Dropdown.Toggle>
+            <div className="post container">
+                <Row>
+                    <Col xs={2}>
+                        <Image
+                            src={post.user.image}
+                            rounded
+                            style={{ maxWidth: "100%" }}
+                        ></Image>
+                    </Col>
+                    <Col xs={8} className={"postElements"}>
+                        <h5>{post.username}</h5>
+                        <cite>{post.user.title}</cite>
+                        <br />
+                        <p title="Source Title">
+                            {formatDistanceToNow(new Date(post.createdAt))} ago
+                        </p>
+                    </Col>
+                    <Col xs={1}>
+                        <Dropdown alignRight>
+                            <Dropdown.Toggle
+                                variant="secondary"
+                                id="dropdown-basic"
+                            >
+                                {/* <BiDotsVerticalRounded />{" "} */}
+                            </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item onClick={showUpdateModal}>
-                                Modifica
-                            </Dropdown.Item>
-                            <Dropdown.Item onClick={showDeleteModal}>
-                                Elimina
-                            </Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </div>
-                <blockquote className="blockquote mb-0">
-                    <p>{post.text}</p>
-                    {post.image && (
-                        <Image src={post.image} width={"100px"}></Image>
-                    )}
-                    <footer className="blockquote-footer">
-                        <cite title="Source Title">
-                            Creato alle{" "}
-                            {format(new Date(post.createdAt), "p P")}
-                        </cite>
-                    </footer>
-                </blockquote>
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={showUpdateModal}>
+                                    Modifica
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={showDeleteModal}>
+                                    Elimina
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
+                </Row>
+                <br />
+                <p>{post.text}</p>
+                {post.image && (
+                    <Image
+                        src={post.image}
+                        style={{ maxWidth: "100%" }}
+                    ></Image>
+                )}
                 <hr />
                 <div className="post-buttons">
                     <span>
