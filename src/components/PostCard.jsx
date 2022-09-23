@@ -22,7 +22,7 @@ import {
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const PostCard = ({ post }) => {
-    const profiles = useSelector((state) => state.profile.profiles);
+    const actualProfile = useSelector((state) => state.profile.actualProfile);
     const [data, setData] = useState({
         text: post.text,
     });
@@ -73,23 +73,26 @@ const PostCard = ({ post }) => {
                         </p>
                     </Col>
                     <Col xs={1}>
-                        <Dropdown alignRight>
-                            <Dropdown.Toggle
-                                variant="secondary"
-                                id="dropdown-basic"
-                            >
-                                {/* <BiDotsVerticalRounded />{" "} */}
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={showUpdateModal}>
-                                    Modifica
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={showDeleteModal}>
-                                    Elimina
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        {actualProfile._id === post.user._id ? (
+                            <Dropdown alignRight>
+                                <Dropdown.Toggle
+                                    variant="secondary"
+                                    id="dropdown-basic"
+                                >
+                                    {/* <BiDotsVerticalRounded />{" "} */}
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={showUpdateModal}>
+                                        Modifica
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={showDeleteModal}>
+                                        Elimina
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>{" "}
+                            </Dropdown>
+                        ) : (
+                            <></>
+                        )}
                     </Col>
                 </Row>
                 <br />
