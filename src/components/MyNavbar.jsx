@@ -93,12 +93,13 @@ function MyNavbar() {
                                     title={profile.name}
                                     id="collasible-nav-dropdown"
                                 >
-                                    <NavDropdown.Item>
+                                    <NavDropdown.Item
+                                        onClick={() => navigate("/profile")}
+                                    >
                                         <Image
                                             src={profile.image}
                                             roundedCircle
                                             width={"45px"}
-                                            onClick={() => navigate("/profile")}
                                         />
                                         <h6>
                                             {profile.name} {profile.surname}

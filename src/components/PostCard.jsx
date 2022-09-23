@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
 
     return (
         <>
-            <div className="post">
+            <div className="post container">
                 <div className="d-flex justify-content-between post-body">
                     <Row>
                         <Col>
@@ -67,6 +67,7 @@ const PostCard = ({ post }) => {
                                 width={"25px"}
                             ></Image>
                             <p>{post.username}</p>
+                            <cite>{post.user.title}</cite>
                         </Col>
                     </Row>
                     <Dropdown alignRight>
@@ -87,18 +88,18 @@ const PostCard = ({ post }) => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
-                <blockquote className="blockquote mb-0">
-                    <p>{post.text}</p>
-                    {post.image && (
-                        <Image src={post.image} width={"100px"}></Image>
-                    )}
-                    <footer className="blockquote-footer">
-                        <cite title="Source Title">
-                            Creato alle{" "}
-                            {format(new Date(post.createdAt), "p P")}
-                        </cite>
-                    </footer>
-                </blockquote>
+                <p>{post.text}</p>
+                {post.image && (
+                    <Image
+                        src={post.image}
+                        style={{ maxWidth: "100%" }}
+                    ></Image>
+                )}
+                <footer className="blockquote-footer">
+                    <cite title="Source Title">
+                        Creato alle {format(new Date(post.createdAt), "p P")}
+                    </cite>
+                </footer>
                 <hr />
                 <div className="post-buttons">
                     <span>
