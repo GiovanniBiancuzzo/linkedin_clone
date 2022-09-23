@@ -1,4 +1,4 @@
-.App{
+/* .App{
   height: 100vh;
   background-color: rgb(233, 233, 233);
 }
@@ -14,5 +14,246 @@ footer{
   @media screen and (max-width: 1024px) {
       padding-left: 3rem !important;
       padding-right: 3rem !important;
-  }
+  } */
+.App {
+    text-align: center;
+    background-color: #f3f2ef;
 }
+
+#link {
+    text-decoration: none;
+    color: #252525e1;
+}
+
+#icona {
+    width: 85px !important;
+    color: #252525e1;
+}
+
+.work {
+    border-left: 1px solid #252525e1;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.profile-section {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5px 50px;
+    background-color: #ffffff;
+    /*  color: white; */
+}
+
+.profile-details {
+    margin-top: 5em;
+    padding-left: 24px;
+}
+
+#profile-pic {
+    width: 152px;
+    height: 152px;
+    border: 3px solid white;
+    margin-bottom: 1rem;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.bottone {
+    margin-top: 10px;
+    background-color: #70b5f9 !important;
+    border: 0px !important;
+    color: black !important;
+    margin-bottom: 1rem;
+    border-radius: 1.6rem !important;
+}
+
+.bottone:hover {
+    background-color: #a8d4ff !important;
+}
+
+.pencil-icon {
+    width: 24px;
+    height: 24px;
+    margin-top: -45px;
+    margin-right: 20px;
+}
+
+.pencil-icon:hover {
+    background-color: white;
+}
+.link-p {
+    color: rgb(117, 90, 41);
+    font-size: small;
+    align-self: flex-start;
+}
+#searchBar {
+    width: 10vw;
+}
+
+#imglink {
+    width: 40px;
+}
+
+.imgsidebar {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.imgsideprofile {
+    margin-bottom: -40px;
+    width: 100%;
+    height: 70px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.cardheader {
+    padding: 0% !important;
+    background-color: white !important;
+    border-top-left-radius: 13px !important;
+    border-top-right-radius: 13px !important;
+}
+.cardheader > h6 {
+    margin-bottom: 20px;
+}
+.listgroup {
+    display: flex;
+    text-align: left;
+}
+.Cardside {
+    border-top-left-radius: 13px !important;
+    border-top-right-radius: 13px !important;
+    font-size: small;
+}
+.premiumicons {
+    color: rgb(230, 206, 45);
+}
+.iconsbook {
+    color: rgb(89, 89, 89);
+}
+
+.Cardside2 {
+    margin-top: 10px;
+}
+
+.Cardside2 > hr {
+    margin: 0%;
+}
+
+.link-c {
+    color: #0060c0;
+    font-size: small;
+    align-self: flex-start;
+}
+
+#list__group:hover {
+    background-color: rgb(243, 243, 243);
+}
+.link-d:hover {
+    background-color: rgb(243, 243, 243);
+}
+.link-d {
+    margin: 10px;
+}
+
+#imglink {
+    width: 40px;
+}
+
+/* .loadingSpinner {
+    width: 60px;
+    height: 60px;
+} */
+
+/* FEED AND CARD */
+
+.feed {
+    /* flex: 0.6;
+    margin: 0 20px; */
+}
+
+.feed-inputContainer {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.feed-input {
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    display: flex;
+    padding: 10px;
+    color: gray;
+    padding-left: 15px;
+}
+
+.navbar {
+    background-color: white;
+    margin-bottom: 25px;
+    border: 1px solid rgb(230, 230, 230);
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+    height: 5vw;
+}
+/* 
+.homeRow {
+    padding: 0 10vw;
+    padding-right: vw;
+} */
+
+.post {
+    background-color: white;
+    border: 1px solid rgb(230, 230, 230) !important;
+}
+
+.notiziecard0 {
+    text-align: left;
+}
+
+.notiziah6 {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.notiziecard > ul > li {
+    font-size: 10px;
+}
+
+.notiziecard > ul > li:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.cardttl {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .feed-input > form {
+    display: flex;
+    width: 100%;
+}
+
+.feed-input > form > input {
+    border: none;
+    flex: 1;
+    margin-left: 10px;
+    outline-width: 0;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.feedInputButton {
+    background-color: transparent;
+    border: none;
+} */
