@@ -1,0 +1,27 @@
+#experience-container {
+    border: 1px solid #1d2226;
+    /* width: 1040px; */
+    height: auto;
+    background-color: #ffffff;
+    /* color: white; */
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    justify-content: center;
+}
+
+hr {
+    color: white;
+}
+
+.modalElement {
+    background-color: #1d2226;
+    color: white;
+}
+
+.modalElement input,
+.modalElement textarea {
+    background-color: #1d2226;
+    color: white;
+}
