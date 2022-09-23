@@ -7,8 +7,6 @@ import MyCustomProfile from "./components/MyCustomProfile";
 import NotFoundComponent from './components/NotFoundComponent';
 import SidebarRight from './components/SidebarRight';
 import { Col, Container, Row } from 'react-bootstrap';
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 
 function App () {
