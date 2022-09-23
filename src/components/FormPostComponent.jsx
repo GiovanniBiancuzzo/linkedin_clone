@@ -16,18 +16,13 @@ const FormPostComponent = () => {
     const handleCreate = (e) => {
         e.preventDefault();
         console.log("create post");
-        // if (dataImage !== null) {
         const formData = new FormData();
-        formData.append("post", {
-            dataImage,
-        });
-        //     dispatch(uploadImagePostAction(formData));
-        // } else {
-        // }
+        formData.append("post", dataImage);
         dispatch(createPostAction(data, formData));
         setData({
             text: "",
         });
+        showModal();
     };
 
     return (
@@ -64,7 +59,7 @@ const FormPostComponent = () => {
                             <Form.Control
                                 type="file"
                                 placeholder="Upload your image"
-                                // accept="image"
+                                accept="image"
                                 onChange={(e) =>
                                     setDataImage(e.target.files[0])
                                 }
