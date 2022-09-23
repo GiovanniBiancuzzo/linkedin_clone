@@ -99,7 +99,7 @@ function MyNavbar() {
                                             roundedCircle
                                             width={"45px"}
                                             onClick={() => navigate("/profile")}
-                                        />
+                                            />
                                         <h6>
                                             {profile.name} {profile.surname}
                                         </h6>
