@@ -16,7 +16,7 @@ function MyNavbar() {
     const navigate = useNavigate();
 
     return (
-        <Col xs={12}>
+        <Col>
             <Navbar collapseOnSelect bg="#fff" className="navbar">
                 <Link to="/">
                     <Navbar.Brand xs={5}>
