@@ -43,7 +43,7 @@ const experiencesReducer = (state = initialState, action) => {
         case LOADED_EXPERIENCES:
             return {
                 ...state,
-                loading: !state.loading
+                loading: false
             };
         case GET_EXPERIENCES_ERROR:
             return {

@@ -19,7 +19,6 @@ import {
     updatePostAction,
     uploadImagePostAction,
 } from "../redux/actions";
-import { format } from "date-fns";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const PostCard = ({ post }) => {
