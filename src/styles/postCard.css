@@ -13,3 +13,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.postElements p {
+    margin: 0;
+}
