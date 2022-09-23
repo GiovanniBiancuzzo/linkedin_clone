@@ -244,5 +244,24 @@
     border: none;
 } */
 
+/*note: integrazione da footer*/
+
+/* .App{
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+}
+
+p > a {
+  font-size: 14px;
+}
 
 
+  @media screen and (max-width: 1024px) {
+      padding-left: 3rem !important;
+      padding-right: 3rem !important;
+  } */
+
+footer {
+    padding-left: 15rem !important;
+    padding-right: 15rem !important;
+}

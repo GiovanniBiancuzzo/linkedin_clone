@@ -7,6 +7,7 @@ import MyCustomProfile from "./components/MyCustomProfile";
 import NotFoundComponent from './components/NotFoundComponent';
 import SidebarRight from './components/SidebarRight';
 import { Col, Container, Row } from 'react-bootstrap';
+import Footer from "./components/Footer";
 
 function App () {
   return (
@@ -23,6 +24,7 @@ function App () {
             <Col lg={3}><SidebarRight /></Col>
           </Row>
         </Container>
+        <Footer />
       </Row>
     </BrowserRouter>
   );
