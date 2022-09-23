@@ -4,7 +4,7 @@ import { BsInfoSquareFill } from "react-icons/bs";
 
 function SidebarRight() {
   return (
-    <Card style={{ width: '20rem', height:'23rem', position: "sticky" , top: "125px" }} className='notiziecard0'>
+    <Card style={{ width: '20rem', height:'23rem', position: "sticky" , top: "30px" }} className='notiziecard0'>
       <Card.Body>
         <Card.Title className='cardttl'> <h5>LinkedIn Notizie</h5>  <BsInfoSquareFill size={13}/></Card.Title>
         <Card.Text className='notiziecard'>
