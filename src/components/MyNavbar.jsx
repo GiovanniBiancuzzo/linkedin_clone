@@ -17,7 +17,7 @@ function MyNavbar() {
 
     return (
         <Col>
-            <Navbar collapseOnSelect bg="#fff" className="navbar">
+            <Navbar collapseOnSelect bg="#fff" className="navbar" >
                 <Link to="/">
                     <Navbar.Brand xs={5}>
                         <img

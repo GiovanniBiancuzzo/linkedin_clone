@@ -188,6 +188,9 @@
     padding-left: 10vw !important;
     padding-right: 10vw !important;
     height: 5vw;
+    position: sticky !important;
+    top: 0 ;
+ z-index: 99;
 }
 /* 
 .homeRow {
@@ -240,3 +243,6 @@
     background-color: transparent;
     border: none;
 } */
+
+
+

@@ -12,7 +12,7 @@ const Sidebarleft = () => {
 
     return (
         <Col sm={3}>
-            <Card style={{ width: "15rem" }} className="Cardside">
+            <Card style={{ width: "15rem",position: "sticky" , top: "125px" }} className="Cardside">
                 <Card.Header className="cardheader">
                     <img
                         src="https://i.pinimg.com/736x/9d/64/ea/9d64eabe1a8e84fd246ade05b727ed6f.jpg"
@@ -67,7 +67,7 @@ const Sidebarleft = () => {
                 </ListGroup>
             </Card>
 
-            <Card style={{ width: "15rem" }} className="Cardside2">
+            <Card style={{ width: "15rem", position: "sticky" , top: 0 }} className="Cardside2">
                 <Button variant="link" className="link-c">
                     <b>Gruppi</b>
                 </Button>
