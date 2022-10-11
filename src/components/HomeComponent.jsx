@@ -8,7 +8,7 @@ import Sidebarleft from "./Sidebarleft";
 import SidebarRight from "./SidebarRight";
 
 const HomeComponent = () => {
-    const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
+    const IDGiovanni = "me"; //mio id
     // aggiungete anche il vostro id cosi vedete il vostro profilo
     const dispatch = useDispatch();
 

@@ -8,7 +8,7 @@ import ExperiencesComponent from "./ExperiencesComponent";
 
 const MyCustomProfile = () => {
     const profile = useSelector((state) => state.profile.actualProfile);
-    const IDGiovanni = "6328189d6d79a500150902e7"; //mio id
+    const IDGiovanni = "me"; //mio id
 
     const [show, setShow] = useState(false);
     const showModal = () => setShow(!show);

@@ -25,7 +25,7 @@ const endpointApi =
     "https://striveschool-api.herokuapp.com/api";
 
 const keyGiovanni =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MTg5ZDZkNzlhNTAwMTUwOTAyZTciLCJpYXQiOjE2NjM1NzIxMjUsImV4cCI6MTY2NDc4MTcyNX0.6bJFxOHIifx_59Q1Ufr2BmkINZTRZD9wO-HNuiHA-iU";
+    process.env.REACT_APP_KEY_GIOVANNI;
 
 //note: actions per il profilo
 export const getProfilesAction = () => {
